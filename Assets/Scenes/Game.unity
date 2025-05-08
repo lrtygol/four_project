@@ -3583,6 +3583,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ghost
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 16b46011ed5da7f45b80353b5c0865d1, type: 3}
+      propertyPath: m_TagString
+      value: kill
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16b46011ed5da7f45b80353b5c0865d1, type: 3}
 --- !u!1 &977046194
@@ -11038,7 +11042,7 @@ GameObject:
   - component: {fileID: 1853490748}
   m_Layer: 0
   m_Name: Terrain
-  m_TagString: Untagged
+  m_TagString: kill
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -11998,6 +12002,7 @@ GameObject:
   - component: {fileID: 2127435349}
   - component: {fileID: 2127435348}
   - component: {fileID: 2127435347}
+  - component: {fileID: 2127435350}
   m_Layer: 0
   m_Name: place (1)
   m_TagString: place
@@ -12083,6 +12088,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2127435345}
   m_Mesh: {fileID: -5495902117074765545, guid: f4c07030ae95ca245a30a40d5d8ea94e, type: 3}
+--- !u!114 &2127435350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2127435345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c196ccce7a37cf42b47a0a75bfc0b5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Direction: 1
+  speed: 2
+  distance: 3
 --- !u!1 &2144628871
 GameObject:
   m_ObjectHideFlags: 0
@@ -12704,7 +12724,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2576951675243562274}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 149.11, y: 151.09, z: -41.49}
+  m_LocalPosition: {x: 149, y: 151, z: -41}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

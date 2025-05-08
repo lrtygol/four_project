@@ -29,6 +29,7 @@ public class Run : MonoBehaviour
         Vector3 moveDerection = new Vector3(horizontal, 0 , vertical);
         if (Input.GetKey(KeyCode.Space)&& jump == false)
         {
+            anim.SetTrigger("Jump");
             rb.AddForce(new Vector3(0, Fjump, 0), ForceMode.Impulse);
             jump = true;
         }
@@ -62,6 +63,11 @@ public class Run : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject.CompareTag("kill"))
+        {
+            transform.position = new Vector3(149, 151, -41);
+        }
+
         if (collision.gameObject.CompareTag("place"))
         {
             jump = false;
