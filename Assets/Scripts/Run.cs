@@ -12,11 +12,16 @@ public class Run : MonoBehaviour
     public float horizontal;
     public float vertical;
     public Animator anim;
+    public Transform cameraPivot;
+    private float VerticalRotation = 0f;
+    [Range(0.1f, 9f)][SerializeField] float sensitivity = 0.5f;
+    [Range(0f, 90f)][SerializeField] float yLimited;
 
     Rigidbody rb;
 
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         rb = GetComponent<Rigidbody>();
     }
 
@@ -24,9 +29,27 @@ public class Run : MonoBehaviour
     void Update()
     {
 
+        float MouseX = Input.GetAxis("Mouse X") * sensitivity;
+        float MouseY = Input.GetAxis("Mouse Y") * sensitivity;
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
-        Vector3 moveDerection = new Vector3(horizontal, 0 , vertical);
+        transform.Rotate(0, MouseX, 0);
+        VerticalRotation = MouseY;
+        VerticalRotation = Mathf.Clamp(VerticalRotation, -yLimited, yLimited);
+        cameraPivot.localRotation = Quaternion.Euler(VerticalRotation, 0, 0);
+        Vector3 cameraForward = Camera.main.transform.forward;
+        Vector3 cameraRight = Camera.main.transform.right;
+        cameraForward.y = 0;
+        cameraRight.y = 0;
+        cameraForward.Normalize();
+        cameraRight.Normalize();
+        Vector3 moveDerection = (cameraForward * vertical ) + (cameraRight * horizontal );
+        moveDerection.y = 0;
+        moveDerection.Normalize();
+
+
+
+
         if (Input.GetKey(KeyCode.Space)&& jump == false)
         {
             anim.SetTrigger("Jump");
@@ -39,14 +62,14 @@ public class Run : MonoBehaviour
             {
                 anim.SetBool("Sprint", true);
                 anim.SetBool("Walk", false);
-                transform.Translate(Vector3.forward * Time.deltaTime * vertical * sprint);
+                transform.position += moveDerection.normalized * Time.deltaTime * sprint;
 
             }
             else
             {
                 anim.SetBool("Sprint", false);
                 anim.SetBool("Walk", true);
-                transform.Translate(Vector3.forward * Time.deltaTime * vertical * speed);
+                transform.position += moveDerection.normalized * Time.deltaTime * speed;
             }
 
         }
