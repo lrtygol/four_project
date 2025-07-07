@@ -5,9 +5,11 @@ using UnityEngine;
 public class Run : MonoBehaviour
 {
     public float Fjump = 200f;
+    public float F = 500f;
+    public float S = 1000f;
     public int speed = 4;
-    
     public int sprint = 10;
+
     public bool jump = false;
 
     public float horizontal;
@@ -99,18 +101,37 @@ public class Run : MonoBehaviour
         {
             transform.position = new Vector3(149, 151, -41);
         }
-
         if (collision.gameObject.CompareTag("place"))
         {
+
             jump = false;
-            transform.parent = collision.transform;
             
+        }
+
+        //if ((collision.gameObject.CompareTag("hammer")))
+        //{
+        //    Debug.Log("да");
+        //    rb.AddForce(new Vector3(0, 0, S), ForceMode.Impulse);
+        //}
+
+
+        //if ((collision.gameObject.CompareTag("spring")))
+        //{
+            
+        //    rb.AddForce(new Vector3(0, F, 0), ForceMode.Impulse);
+        //    jump = true;
+        //}
+
+        if (collision.gameObject.CompareTag("moving"))
+        {
+
+            transform.parent = collision.transform;
         }
     } 
     private void OnCollisionExit(Collision collision)
     {
         
-        if (collision.gameObject.CompareTag("place"))
+        if (collision.gameObject.CompareTag("moving"))
         {
             transform.parent = null;
         }

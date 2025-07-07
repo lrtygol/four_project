@@ -6,6 +6,9 @@ TagManager:
   tags:
   - place
   - kill
+  - moving
+  - spring
+  - hammer
   layers:
   - Default
   - TransparentFX
@@ -15,9 +18,9 @@ TagManager:
   - UI
   - player
   - box
-  - 
-  - 
-  - 
+  - spring
+  - hammer
+  - Platclimb
   - 
   - 
   - 
