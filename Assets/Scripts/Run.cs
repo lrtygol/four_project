@@ -9,6 +9,8 @@ public class Run : MonoBehaviour
     public float S = 1000f;
     public int speed = 4;
     public int sprint = 10;
+    public GameObject DieScreen;
+    
 
     public bool jump = false;
 
@@ -27,7 +29,8 @@ public class Run : MonoBehaviour
 
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        
+
         rb = GetComponent<Rigidbody>();
     }
 
@@ -99,13 +102,25 @@ public class Run : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("kill"))
         {
+            Cursor.lockState = CursorLockMode.None;
+            DieScreen.SetActive(true);
             transform.position = new Vector3(149, 151, -41);
         }
-        if (collision.gameObject.CompareTag("place"))
+        
+        //if (collision.gameObject.CompareTag("Boss"))
+        //{
+        //    transform.position = new Vector3(149, 151, -41);
+        //}
+        if (collision.gameObject.CompareTag("place") || collision.gameObject.CompareTag("moving"))
         {
 
             jump = false;
             
+        }
+
+        if (collision.gameObject.CompareTag("tp_boss"))
+        {
+            transform.position = new Vector3(381, -1090, 22);
         }
 
         //if ((collision.gameObject.CompareTag("hammer")))

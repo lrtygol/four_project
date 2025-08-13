@@ -9,6 +9,7 @@ TagManager:
   - moving
   - spring
   - hammer
+  - tp_boss
   layers:
   - Default
   - TransparentFX
