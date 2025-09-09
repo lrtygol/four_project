@@ -6,6 +6,10 @@ public class GameManager : MonoBehaviour
 {
     public GameObject StartScreen;
     public GameObject DieScreen;
+    void Start ()
+    {
+        StartScreen.SetActive(true);
+    }
     public void StartGame()
     {
         StartScreen.SetActive(false);
@@ -14,6 +18,7 @@ public class GameManager : MonoBehaviour
     }
     public void EndGame()
     {
+
         DieScreen.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
     }
