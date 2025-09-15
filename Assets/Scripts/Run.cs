@@ -24,6 +24,7 @@ public class Run : MonoBehaviour
 
     public health health;
     public int hp = 100;
+    private AudioSource AudioSource;
 
     public bool jump = false;
 
@@ -41,11 +42,13 @@ public class Run : MonoBehaviour
     Rigidbody rb;
 
     
-        void Start()
+    void Start()
     {
-            Randix();
+        Randix();
         
         rb = GetComponent<Rigidbody>();
+
+        AudioSource = GetComponent<AudioSource>();
     }
     public void Randix()
     {
@@ -144,8 +147,9 @@ public class Run : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("kill"))
         {
-            hp -= 20;
+            hp -= 100;
             health.set_health(hp);
+            
             if (hp <= 0) 
             {
                 
@@ -159,6 +163,28 @@ public class Run : MonoBehaviour
             
         }
         
+        if (collision.gameObject.CompareTag("crit_damage"))
+        {
+            Ghost transparency = collision.GetComponent<Ghost>();
+            if (transparency != null)
+            {
+                transparency.StartTransp();
+            }
+            hp -= 20;
+            health.set_health(hp);
+            AudioSource.Play();
+            if (hp <= 0)
+            {
+
+                Randix();
+                Cursor.lockState = CursorLockMode.None;
+                DieScreen.SetActive(true);
+                transform.position = new Vector3(149, 151, -41);
+                hp = 100;
+                health.set_health(hp);
+            }
+        }
+
         //if (collision.gameObject.CompareTag("Boss"))
         //{
         //    transform.position = new Vector3(149, 151, -41);
