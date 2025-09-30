@@ -10,6 +10,7 @@ TagManager:
   - spring
   - hammer
   - tp_boss
+  - crit_damage
   layers:
   - Default
   - TransparentFX

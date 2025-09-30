@@ -8,30 +8,45 @@ public class Ghost : MonoBehaviour
     public Transform player;
     private float distance;
     private Renderer GhostRenderer;
-    private bool invisible = false;
-    private Color OriginalCol;
-    private float StartTime;
+    private Coroutine fadeCor;
+    public Material InvisMat;
+   
+    
     public float Duration = 2f;
     
     void Start()
     {
         GhostRenderer = GetComponent<Renderer>();
-        if (GhostRenderer != null)
-        {
-            OriginalCol = GhostRenderer.material.color;
-        }
+        
     }
     public void StartTransp()
     {
-        if (!invisible)
+        if (fadeCor != null)
         {
-            invisible = true;
-            StartTime = Time.time;
+            StopCoroutine(fadeCor);
         }
+        fadeCor = StartCoroutine(fading(Duration));
     }
 
 
+    private IEnumerator fading(float Duration)
+    {
+        float StartTime = Time.time;
+        
+        speed = 0;
+        while (Time.time < StartTime + Duration)
+        {
 
+            float t = Time.time - StartTime / Duration;
+            float newT = 1f - t;
+            Color currentColor = InvisMat.color;
+            InvisMat.color = new Color(currentColor.r, currentColor.g, currentColor.b, newT);
+            yield return null;
+        }
+        Destroy(gameObject);
+        fadeCor = null;
+
+    }
 
     void Update()
     {
@@ -46,16 +61,7 @@ public class Ghost : MonoBehaviour
             
             transform.position += direction * speed * Time.deltaTime;
         }
-        if (invisible) 
-        {
-            float elapsedTime = Time.time - StartTime;
-            if (elapsedTime <Duration)
-            {
-                float t = elapsedTime / Duration;
-                float newT = 1f - t;
-                Color Col = new Color(OriginalCol.r, OriginalCol.g, OriginalCol.b, newAlpha);
-                GhostRenderer.material.Color = Col;
-            }
-        }
+        
+
     }
 }

@@ -638,6 +638,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   player: {fileID: 903806856}
+  InvisMat: {fileID: 0}
+  Duration: 2
 --- !u!64 &67594957
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1609,7 +1611,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 16b46011ed5da7f45b80353b5c0865d1, type: 3}
       propertyPath: m_TagString
-      value: kill
+      value: crit_damage
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16b46011ed5da7f45b80353b5c0865d1, type: 3}
@@ -2817,6 +2819,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   player: {fileID: 903806856}
+  InvisMat: {fileID: 0}
+  Duration: 2
 --- !u!64 &268108116
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4269,6 +4273,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   player: {fileID: 2920860652195930008}
+  InvisMat: {fileID: 0}
+  Duration: 2
 --- !u!64 &369055160
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5280,6 +5286,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   player: {fileID: 2920860652195930008}
+  InvisMat: {fileID: 0}
+  Duration: 2
 --- !u!64 &435697685
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5446,6 +5454,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   player: {fileID: 903806856}
+  InvisMat: {fileID: 0}
+  Duration: 2
 --- !u!64 &497177206
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6667,6 +6677,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   player: {fileID: 903806856}
+  InvisMat: {fileID: 0}
+  Duration: 2
 --- !u!64 &648314313
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7787,6 +7799,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   player: {fileID: 2920860652195930008}
+  InvisMat: {fileID: 0}
+  Duration: 2
 --- !u!64 &742872706
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -8515,6 +8529,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   player: {fileID: 903806856}
+  InvisMat: {fileID: 0}
+  Duration: 2
 --- !u!64 &799920463
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -15075,13 +15091,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 16b46011ed5da7f45b80353b5c0865d1, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 16b46011ed5da7f45b80353b5c0865d1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: -7511558181221131132, guid: 16b46011ed5da7f45b80353b5c0865d1, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 23ee8f364209f3e44b2c64206a60e423, type: 2}
     - target: {fileID: 919132149155446097, guid: 16b46011ed5da7f45b80353b5c0865d1, type: 3}
       propertyPath: m_Name
       value: Ghost
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 16b46011ed5da7f45b80353b5c0865d1, type: 3}
       propertyPath: m_TagString
-      value: kill
+      value: crit_damage
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16b46011ed5da7f45b80353b5c0865d1, type: 3}
@@ -15740,6 +15768,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   player: {fileID: 903806856}
+  InvisMat: {fileID: 0}
+  Duration: 2
 --- !u!64 &1038758621
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -16471,6 +16501,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   player: {fileID: 903806856}
+  InvisMat: {fileID: 0}
+  Duration: 2
 --- !u!64 &1120874250
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -16566,6 +16598,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   player: {fileID: 903806856}
+  InvisMat: {fileID: 0}
+  Duration: 2
 --- !u!64 &1140889997
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -17015,6 +17049,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   player: {fileID: 903806856}
+  InvisMat: {fileID: 0}
+  Duration: 2
 --- !u!64 &1206583938
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -24172,6 +24208,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   player: {fileID: 2920860652195930008}
+  InvisMat: {fileID: 0}
+  Duration: 2
 --- !u!64 &1438018306
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -24416,6 +24454,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   player: {fileID: 2920860652195930008}
+  InvisMat: {fileID: 0}
+  Duration: 2
 --- !u!64 &1455810994
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -25805,6 +25845,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   player: {fileID: 2920860652195930008}
+  InvisMat: {fileID: 0}
+  Duration: 2
 --- !u!64 &1557448676
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -25838,6 +25880,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   player: {fileID: 2920860652195930008}
+  InvisMat: {fileID: 0}
+  Duration: 2
 --- !u!64 &1564013095
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -25846,7 +25890,7 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1564013089}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
@@ -26637,6 +26681,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   player: {fileID: 903806856}
+  InvisMat: {fileID: 0}
+  Duration: 2
 --- !u!64 &1667995294
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -27420,6 +27466,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   player: {fileID: 903806856}
+  InvisMat: {fileID: 0}
+  Duration: 2
 --- !u!64 &1732442089
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -27854,6 +27902,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   player: {fileID: 2920860652195930008}
+  InvisMat: {fileID: 0}
+  Duration: 2
 --- !u!64 &1770242080
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -28906,6 +28956,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   player: {fileID: 2920860652195930008}
+  InvisMat: {fileID: 0}
+  Duration: 2
 --- !u!64 &1841678234
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -29231,6 +29283,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   player: {fileID: 903806856}
+  InvisMat: {fileID: 0}
+  Duration: 2
 --- !u!64 &1872876021
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -29292,7 +29346,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  player: {fileID: 903806856}
+  player: {fileID: 5843729226483675505}
+  InvisMat: {fileID: 2100000, guid: 23ee8f364209f3e44b2c64206a60e423, type: 2}
+  Duration: 2
 --- !u!64 &1888429048
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -29301,7 +29357,7 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1888429046}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
@@ -30072,6 +30128,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   player: {fileID: 2920860652195930008}
+  InvisMat: {fileID: 0}
+  Duration: 2
 --- !u!64 &1948723378
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -30441,6 +30499,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   player: {fileID: 903806856}
+  InvisMat: {fileID: 0}
+  Duration: 2
 --- !u!64 &1962408171
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -31031,6 +31091,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   player: {fileID: 903806856}
+  InvisMat: {fileID: 0}
+  Duration: 2
 --- !u!64 &2022417533
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -31929,6 +31991,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   player: {fileID: 903806856}
+  InvisMat: {fileID: 0}
+  Duration: 2
 --- !u!64 &2070865185
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -33484,6 +33548,7 @@ GameObject:
   - component: {fileID: 9108767316370261475}
   - component: {fileID: 9108767316370261477}
   - component: {fileID: 9108767316370261478}
+  - component: {fileID: 9108767316370261479}
   m_Layer: 6
   m_Name: petya
   m_TagString: Player
@@ -34595,6 +34660,8 @@ MonoBehaviour:
   blocker: 0
   health: {fileID: 1747556023}
   hp: 100
+  damage_CD: 5
+  nextDmg: 0
   jump: 0
   horizontal: 0
   vertical: 0
@@ -34636,3 +34703,99 @@ MonoBehaviour:
   rayCastDistance: 0.4
   height: 0.5
   time: 0.7
+--- !u!82 &9108767316370261479
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2576951675243562274}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 6e2b6e7033c2dc245bb2233ad6d745cc, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.6
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

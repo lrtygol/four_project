@@ -24,6 +24,8 @@ public class Run : MonoBehaviour
 
     public health health;
     public int hp = 100;
+    public float damage_CD = 1f;
+    public float nextDmg;
     private AudioSource AudioSource;
 
     public bool jump = false;
@@ -142,7 +144,32 @@ public class Run : MonoBehaviour
         
        
     }
+    private void OnTriggerStay(Collider other)
+    {
 
+        if (other.gameObject.CompareTag("crit_damage") && Time.time > nextDmg)
+        {
+            Ghost transparency = other.gameObject.GetComponent<Ghost>();
+            if (transparency != null)
+            {
+                transparency.StartTransp();
+            }
+            hp -= 20;
+            health.set_health(hp);
+            AudioSource.Play();
+            nextDmg = Time.time + damage_CD;
+            if (hp <= 0)
+            {
+
+                Randix();
+                Cursor.lockState = CursorLockMode.None;
+                DieScreen.SetActive(true);
+                transform.position = new Vector3(149, 151, -41);
+                hp = 100;
+                health.set_health(hp);
+            }
+        }
+    }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("kill"))
@@ -162,28 +189,7 @@ public class Run : MonoBehaviour
             }
             
         }
-        
-        if (collision.gameObject.CompareTag("crit_damage"))
-        {
-            Ghost transparency = collision.GetComponent<Ghost>();
-            if (transparency != null)
-            {
-                transparency.StartTransp();
-            }
-            hp -= 20;
-            health.set_health(hp);
-            AudioSource.Play();
-            if (hp <= 0)
-            {
 
-                Randix();
-                Cursor.lockState = CursorLockMode.None;
-                DieScreen.SetActive(true);
-                transform.position = new Vector3(149, 151, -41);
-                hp = 100;
-                health.set_health(hp);
-            }
-        }
 
         //if (collision.gameObject.CompareTag("Boss"))
         //{
