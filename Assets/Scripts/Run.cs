@@ -24,7 +24,7 @@ public class Run : MonoBehaviour
 
     public health health;
     public int hp = 100;
-    public float damage_CD = 1f;
+    public float damage_CD = 0.5f;
     public float nextDmg;
     private AudioSource AudioSource;
 
@@ -46,8 +46,8 @@ public class Run : MonoBehaviour
     
     void Start()
     {
-        Randix();
-        
+        //Randix();
+        Debug.Log(health);
         rb = GetComponent<Rigidbody>();
 
         AudioSource = GetComponent<AudioSource>();
@@ -147,27 +147,32 @@ public class Run : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
 
-        if (other.gameObject.CompareTag("crit_damage") && Time.time > nextDmg)
+        if (other.gameObject.CompareTag("crit_damage"))
         {
             Ghost transparency = other.gameObject.GetComponent<Ghost>();
             if (transparency != null)
             {
                 transparency.StartTransp();
             }
-            hp -= 20;
-            health.set_health(hp);
-            AudioSource.Play();
-            nextDmg = Time.time + damage_CD;
-            if (hp <= 0)
+            if (Time.time > nextDmg) 
             {
-
-                Randix();
-                Cursor.lockState = CursorLockMode.None;
-                DieScreen.SetActive(true);
-                transform.position = new Vector3(149, 151, -41);
-                hp = 100;
+                hp -= 20;
                 health.set_health(hp);
+                AudioSource.Play();
+                nextDmg = Time.time + damage_CD;
+                if (hp <= 0)
+                {
+
+                    Randix();
+                    Cursor.lockState = CursorLockMode.None;
+                    DieScreen.SetActive(true);
+                    transform.position = new Vector3(149, 151, -41);
+                    hp = 100;
+                    health.set_health(hp);
+                }
             }
+            
+            
         }
     }
     private void OnCollisionEnter(Collision collision)

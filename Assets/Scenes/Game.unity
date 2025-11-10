@@ -669,7 +669,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   player: {fileID: 2920860652195930008}
-  InvisMat: {fileID: 2100000, guid: 23ee8f364209f3e44b2c64206a60e423, type: 2}
+  SourceInvisMat: {fileID: 2100000, guid: 23ee8f364209f3e44b2c64206a60e423, type: 2}
   Duration: 2
 --- !u!64 &67594957
 MeshCollider:
@@ -2850,7 +2850,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   player: {fileID: 2920860652195930008}
-  InvisMat: {fileID: 2100000, guid: 23ee8f364209f3e44b2c64206a60e423, type: 2}
+  SourceInvisMat: {fileID: 2100000, guid: 23ee8f364209f3e44b2c64206a60e423, type: 2}
   Duration: 2
 --- !u!64 &268108116
 MeshCollider:
@@ -4304,7 +4304,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   player: {fileID: 2920860652195930008}
-  InvisMat: {fileID: 2100000, guid: 23ee8f364209f3e44b2c64206a60e423, type: 2}
+  SourceInvisMat: {fileID: 2100000, guid: 23ee8f364209f3e44b2c64206a60e423, type: 2}
   Duration: 2
 --- !u!64 &369055160
 MeshCollider:
@@ -5317,7 +5317,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   player: {fileID: 2920860652195930008}
-  InvisMat: {fileID: 2100000, guid: 23ee8f364209f3e44b2c64206a60e423, type: 2}
+  SourceInvisMat: {fileID: 2100000, guid: 23ee8f364209f3e44b2c64206a60e423, type: 2}
   Duration: 2
 --- !u!64 &435697685
 MeshCollider:
@@ -5485,7 +5485,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   player: {fileID: 903806856}
-  InvisMat: {fileID: 0}
+  SourceInvisMat: {fileID: 0}
   Duration: 2
 --- !u!64 &497177206
 MeshCollider:
@@ -6708,7 +6708,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   player: {fileID: 2920860652195930008}
-  InvisMat: {fileID: 2100000, guid: 23ee8f364209f3e44b2c64206a60e423, type: 2}
+  SourceInvisMat: {fileID: 2100000, guid: 23ee8f364209f3e44b2c64206a60e423, type: 2}
   Duration: 2
 --- !u!64 &648314313
 MeshCollider:
@@ -7830,7 +7830,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   player: {fileID: 2920860652195930008}
-  InvisMat: {fileID: 2100000, guid: 23ee8f364209f3e44b2c64206a60e423, type: 2}
+  SourceInvisMat: {fileID: 2100000, guid: 23ee8f364209f3e44b2c64206a60e423, type: 2}
   Duration: 2
 --- !u!64 &742872706
 MeshCollider:
@@ -8560,7 +8560,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   player: {fileID: 2920860652195930008}
-  InvisMat: {fileID: 2100000, guid: 23ee8f364209f3e44b2c64206a60e423, type: 2}
+  SourceInvisMat: {fileID: 2100000, guid: 23ee8f364209f3e44b2c64206a60e423, type: 2}
   Duration: 2
 --- !u!64 &799920463
 MeshCollider:
@@ -15799,7 +15799,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   player: {fileID: 2920860652195930008}
-  InvisMat: {fileID: 2100000, guid: 23ee8f364209f3e44b2c64206a60e423, type: 2}
+  SourceInvisMat: {fileID: 2100000, guid: 23ee8f364209f3e44b2c64206a60e423, type: 2}
   Duration: 2
 --- !u!64 &1038758621
 MeshCollider:
@@ -16532,7 +16532,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   player: {fileID: 2920860652195930008}
-  InvisMat: {fileID: 2100000, guid: 23ee8f364209f3e44b2c64206a60e423, type: 2}
+  SourceInvisMat: {fileID: 2100000, guid: 23ee8f364209f3e44b2c64206a60e423, type: 2}
   Duration: 2
 --- !u!64 &1120874250
 MeshCollider:
@@ -16629,7 +16629,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   player: {fileID: 2920860652195930008}
-  InvisMat: {fileID: 2100000, guid: 23ee8f364209f3e44b2c64206a60e423, type: 2}
+  SourceInvisMat: {fileID: 2100000, guid: 23ee8f364209f3e44b2c64206a60e423, type: 2}
   Duration: 2
 --- !u!64 &1140889997
 MeshCollider:
@@ -17080,7 +17080,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   player: {fileID: 2920860652195930008}
-  InvisMat: {fileID: 2100000, guid: 23ee8f364209f3e44b2c64206a60e423, type: 2}
+  SourceInvisMat: {fileID: 2100000, guid: 23ee8f364209f3e44b2c64206a60e423, type: 2}
   Duration: 2
 --- !u!64 &1206583938
 MeshCollider:
@@ -24239,7 +24239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   player: {fileID: 2920860652195930008}
-  InvisMat: {fileID: 2100000, guid: 23ee8f364209f3e44b2c64206a60e423, type: 2}
+  SourceInvisMat: {fileID: 2100000, guid: 23ee8f364209f3e44b2c64206a60e423, type: 2}
   Duration: 2
 --- !u!64 &1438018306
 MeshCollider:
@@ -24485,7 +24485,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   player: {fileID: 2920860652195930008}
-  InvisMat: {fileID: 2100000, guid: 23ee8f364209f3e44b2c64206a60e423, type: 2}
+  SourceInvisMat: {fileID: 2100000, guid: 23ee8f364209f3e44b2c64206a60e423, type: 2}
   Duration: 2
 --- !u!64 &1455810994
 MeshCollider:
@@ -25876,7 +25876,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   player: {fileID: 2920860652195930008}
-  InvisMat: {fileID: 2100000, guid: 23ee8f364209f3e44b2c64206a60e423, type: 2}
+  SourceInvisMat: {fileID: 2100000, guid: 23ee8f364209f3e44b2c64206a60e423, type: 2}
   Duration: 2
 --- !u!64 &1557448676
 MeshCollider:
@@ -30723,7 +30723,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   player: {fileID: 2920860652195930008}
-  InvisMat: {fileID: 2100000, guid: 23ee8f364209f3e44b2c64206a60e423, type: 2}
+  SourceInvisMat: {fileID: 2100000, guid: 23ee8f364209f3e44b2c64206a60e423, type: 2}
   Duration: 2
 --- !u!64 &1564013095
 MeshCollider:
@@ -31524,7 +31524,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   player: {fileID: 2920860652195930008}
-  InvisMat: {fileID: 2100000, guid: 23ee8f364209f3e44b2c64206a60e423, type: 2}
+  SourceInvisMat: {fileID: 2100000, guid: 23ee8f364209f3e44b2c64206a60e423, type: 2}
   Duration: 2
 --- !u!64 &1667995294
 MeshCollider:
@@ -32309,7 +32309,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   player: {fileID: 2920860652195930008}
-  InvisMat: {fileID: 2100000, guid: 23ee8f364209f3e44b2c64206a60e423, type: 2}
+  SourceInvisMat: {fileID: 2100000, guid: 23ee8f364209f3e44b2c64206a60e423, type: 2}
   Duration: 2
 --- !u!64 &1732442089
 MeshCollider:
@@ -32745,7 +32745,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   player: {fileID: 2920860652195930008}
-  InvisMat: {fileID: 2100000, guid: 23ee8f364209f3e44b2c64206a60e423, type: 2}
+  SourceInvisMat: {fileID: 2100000, guid: 23ee8f364209f3e44b2c64206a60e423, type: 2}
   Duration: 2
 --- !u!64 &1770242080
 MeshCollider:
@@ -33799,7 +33799,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   player: {fileID: 2920860652195930008}
-  InvisMat: {fileID: 2100000, guid: 23ee8f364209f3e44b2c64206a60e423, type: 2}
+  SourceInvisMat: {fileID: 2100000, guid: 23ee8f364209f3e44b2c64206a60e423, type: 2}
   Duration: 2
 --- !u!64 &1841678234
 MeshCollider:
@@ -34126,7 +34126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   player: {fileID: 2920860652195930008}
-  InvisMat: {fileID: 2100000, guid: 23ee8f364209f3e44b2c64206a60e423, type: 2}
+  SourceInvisMat: {fileID: 2100000, guid: 23ee8f364209f3e44b2c64206a60e423, type: 2}
   Duration: 2
 --- !u!64 &1872876021
 MeshCollider:
@@ -34190,7 +34190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   player: {fileID: 2920860652195930008}
-  InvisMat: {fileID: 2100000, guid: 23ee8f364209f3e44b2c64206a60e423, type: 2}
+  SourceInvisMat: {fileID: 2100000, guid: 23ee8f364209f3e44b2c64206a60e423, type: 2}
   Duration: 2
 --- !u!64 &1888429048
 MeshCollider:
@@ -34537,6 +34537,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: -170
+--- !u!54 &1904637454
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904637445}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1907382355
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34904,6 +34920,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 70
+--- !u!54 &1934104982
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934104971}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1934198702 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1728367123960093460, guid: cb219fb371521054188c0bae8153e9cd, type: 3}
@@ -34971,7 +35003,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   player: {fileID: 2920860652195930008}
-  InvisMat: {fileID: 2100000, guid: 23ee8f364209f3e44b2c64206a60e423, type: 2}
+  SourceInvisMat: {fileID: 2100000, guid: 23ee8f364209f3e44b2c64206a60e423, type: 2}
   Duration: 2
 --- !u!64 &1948723378
 MeshCollider:
@@ -35342,7 +35374,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   player: {fileID: 2920860652195930008}
-  InvisMat: {fileID: 2100000, guid: 23ee8f364209f3e44b2c64206a60e423, type: 2}
+  SourceInvisMat: {fileID: 2100000, guid: 23ee8f364209f3e44b2c64206a60e423, type: 2}
   Duration: 2
 --- !u!64 &1962408171
 MeshCollider:
@@ -35934,7 +35966,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   player: {fileID: 2920860652195930008}
-  InvisMat: {fileID: 2100000, guid: 23ee8f364209f3e44b2c64206a60e423, type: 2}
+  SourceInvisMat: {fileID: 2100000, guid: 23ee8f364209f3e44b2c64206a60e423, type: 2}
   Duration: 2
 --- !u!64 &2022417533
 MeshCollider:
@@ -36834,7 +36866,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   player: {fileID: 2920860652195930008}
-  InvisMat: {fileID: 2100000, guid: 23ee8f364209f3e44b2c64206a60e423, type: 2}
+  SourceInvisMat: {fileID: 2100000, guid: 23ee8f364209f3e44b2c64206a60e423, type: 2}
   Duration: 2
 --- !u!64 &2070865185
 MeshCollider:
@@ -38422,7 +38454,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2576951675243562274}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 182.76, y: 189.9, z: -153.79}
+  m_LocalPosition: {x: 163.5, y: 205.6, z: -147.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -39503,7 +39535,7 @@ MonoBehaviour:
   blocker: 0
   health: {fileID: 1747556023}
   hp: 100
-  damage_CD: 5
+  damage_CD: 0.5
   nextDmg: 0
   jump: 0
   horizontal: 0
