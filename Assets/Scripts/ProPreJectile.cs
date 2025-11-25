@@ -8,6 +8,7 @@ public class ProPreJectile : MonoBehaviour
     public float LifeTime = 5f;
     public int damage = 10;
     public GameObject sprite;
+    public bool onehit = false;
     private Quaternion Rotation = Quaternion.Euler(-90f, 0, 0);
 
     private Vector3 Direction;
@@ -26,52 +27,52 @@ public class ProPreJectile : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other);
-        Instantiate(sprite, transform.position, Rotation);
         Run Plyer = other.GetComponent<Run>();
         if (Plyer != null)
         {
-            getDamage(Plyer, 50);
+            Explode(damage * 5);
+
         }
-        else if (other.CompareTag("place") || !other.isTrigger)
+
+        else if (other.CompareTag("place"))
         {
-            Explode();
+            Explode(damage);
+            
         }
 
 
     }
-    void OnCollisionEnter(Collision collision)
+    
+    void Explode(int finalDamage)
     {
-        Debug.Log(collision);
-        Instantiate(sprite, transform.position, Rotation);
-        
-        if (collision.gameObject.CompareTag("place"))
+        if (onehit)
         {
-            Explode();
+            return;
         }
-
-
-    }
-    void Explode()
-    {
-        GameObject player = GameObject.FindGameObjectWithTag("player");
+        onehit = true;
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
         Run Plyer = player.GetComponent<Run>();
+        GameObject explode = Instantiate(sprite, transform.position, Rotation);
+        Destroy(explode, 1f);
         
-        
+        ParticleSystem fire = GetComponent<ParticleSystem>();
+        fire.transform.parent = null;
+        fire.Stop();
+        Destroy(fire.gameObject, 1f);
+
+
         if (Plyer != null)
         {
             float Distance = Vector3.Distance(transform.position, player.transform.position);
-            if (Distance < 10f)
-                {
-                getDamage(Plyer, damage);
-                }
+            if (Distance < 5f)
+            {
+                
+                Plyer.hp -= finalDamage;
+                
+                Plyer.health.set_health(Plyer.hp);
+            }
         
         }
-    }
-    void getDamage(Run Plyer, int finalDamage)
-    {
-        Plyer.hp -= finalDamage;
-
-        Plyer.health.set_health(Plyer.hp);
+        Destroy(gameObject);
     }
 }
