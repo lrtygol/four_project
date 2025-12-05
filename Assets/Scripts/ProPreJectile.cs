@@ -10,6 +10,7 @@ public class ProPreJectile : MonoBehaviour
     public GameObject sprite;
     public bool onehit = false;
     private Quaternion Rotation = Quaternion.Euler(-90f, 0, 0);
+    private bool reflected = false;
 
     private Vector3 Direction;
     void Start()
@@ -43,6 +44,14 @@ public class ProPreJectile : MonoBehaviour
 
     }
     
+    public void Reflect(Vector3 reflectDirection)
+    {
+        reflected = true;
+        Direction = reflectDirection.normalized;
+        gameObject.tag = "reflected";
+    }
+
+
     void Explode(int finalDamage)
     {
         if (onehit)
@@ -50,6 +59,11 @@ public class ProPreJectile : MonoBehaviour
             return;
         }
         onehit = true;
+        if (reflected)
+        {
+            return;
+        }
+
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         Run Plyer = player.GetComponent<Run>();
         GameObject explode = Instantiate(sprite, transform.position, Rotation);

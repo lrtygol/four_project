@@ -21,6 +21,9 @@ public class Run : MonoBehaviour
     public GameObject DieScreen;
     public VideoPlayer vdplayer;
     public bool blocker = false;
+    public bool block = false;
+    public float blockDuration = 1f;
+    private float blockEndTime = 0f;
 
     public health health;
     public int hp = 100;
@@ -80,7 +83,7 @@ public class Run : MonoBehaviour
         if (blocker) {return;}
             
             
-
+        
         
 
         float MouseX = Input.GetAxis("Mouse X") * sensitivity;
@@ -107,7 +110,30 @@ public class Run : MonoBehaviour
         moveDerection.Normalize();
 
         
+        if (Time.time >= blockEndTime)
+        {
+            block = false;
+            speed = 4;
+            sprint = 10;
+        }
+        else
+        {
+            block = true;
+            speed = 2;
+            sprint = 0;
+        }
 
+
+        if (Input.GetKeyDown(KeyCode.Mouse1) && block == false)
+        {
+
+            Debug.Log("1111111");
+            block = true;
+            blockEndTime = Time.time + blockDuration;
+            
+            
+
+        }
 
 
         if (Input.GetKey(KeyCode.Space)&& jump == false)
