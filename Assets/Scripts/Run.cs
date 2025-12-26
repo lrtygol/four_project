@@ -25,6 +25,7 @@ public class Run : MonoBehaviour
     public float blockDuration = 1f;
     private float blockEndTime = 0f;
 
+    public GameObject Shield;
     public health health;
     public int hp = 100;
     public float damage_CD = 0.5f;
@@ -112,6 +113,7 @@ public class Run : MonoBehaviour
         
         if (Time.time >= blockEndTime)
         {
+            Shield.SetActive(false);
             block = false;
             speed = 4;
             sprint = 10;
@@ -126,12 +128,12 @@ public class Run : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Mouse1) && block == false)
         {
-
-            Debug.Log("1111111");
+            Shield.SetActive(true);
+            Debug.Log("Blocked");
             block = true;
             blockEndTime = Time.time + blockDuration;
             
-            
+
 
         }
 

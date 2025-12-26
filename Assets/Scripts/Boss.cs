@@ -11,11 +11,17 @@ public class Boss : MonoBehaviour
     public Transform attackPoint;
     public float attackCD = 4f;
     private float nextAttackTime;
-    
+
     void Start()
     {
         currethp = Maxhp;
         nextAttackTime = Time.time + attackCD;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        currethp -= damage;
+        Debug.Log(currethp);
     }
 
     void Update()

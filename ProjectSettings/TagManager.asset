@@ -11,6 +11,9 @@ TagManager:
   - hammer
   - tp_boss
   - crit_damage
+  - reflected
+  - Boss
+  - shield
   layers:
   - Default
   - TransparentFX
