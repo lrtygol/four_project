@@ -6,7 +6,7 @@ public class ProPreJectile : MonoBehaviour
 {
     public float speed = 50f;
     public float LifeTime = 5f;
-    public int damage = 10; 
+    public int damage = 100; 
     public GameObject sprite;
     public bool onehit = false;
     private Quaternion Rotation = Quaternion.Euler(-90f, 0, 0);

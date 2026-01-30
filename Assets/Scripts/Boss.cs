@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Boss : MonoBehaviour
 {
@@ -11,6 +13,11 @@ public class Boss : MonoBehaviour
     public Transform attackPoint;
     public float attackCD = 4f;
     private float nextAttackTime;
+    public Slider Boss_slider;
+    public int Phase = 1;
+    public GameObject crips;
+    public BoxCollider SpawnArea;
+    
 
     void Start()
     {
@@ -21,19 +28,49 @@ public class Boss : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currethp -= damage;
+        Boss_slider.value = currethp;
         Debug.Log(currethp);
+
+        ChangePhase();
+
     }
 
     void Update()
     {
         LookAtP();
+
         if (Time.time >= nextAttackTime)
         {
             attack();
+
             nextAttackTime = Time.time + attackCD;
         }
     }
 
+    void ChangePhase()
+    {
+        if (currethp <= 1000 && currethp >= 600 && Phase == 1)
+        {
+            Phase = 2;
+            for (int i = 0; i < 10; i++)
+            {
+                
+                Bounds B = SpawnArea.bounds;
+                Vector3 RandomPos = new Vector3(
+                    Random.Range(B.min.x, B.max.x),
+                    B.min.y,
+                    Random.Range(B.min.z, B.max.z)
+                );
+                GameObject spawning = Instantiate(crips, RandomPos, Quaternion.Euler(-90, 0, 0));
+                
+            }
+        }
+    }
+    
+    //IEnumerator up (Transform CripPos, Vector3 TargetPos)
+    //{
+        
+    //}
 
     void LookAtP()
     {
