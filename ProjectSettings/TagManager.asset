@@ -14,6 +14,7 @@ TagManager:
   - reflected
   - Boss
   - shield
+  - crip
   layers:
   - Default
   - TransparentFX
