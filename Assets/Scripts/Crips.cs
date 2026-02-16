@@ -10,9 +10,11 @@ public class Crips : MonoBehaviour
     public int damage = 5;
     private Transform player;
     private float Timing;
+    private Rigidbody rb;
 
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
         GameObject P = GameObject.FindGameObjectWithTag("Player");
         player = P.transform;
     }
@@ -23,6 +25,7 @@ public class Crips : MonoBehaviour
         Run Plyer = player.GetComponent<Run>();
         if (elevator)
         {
+            rb.isKinematic = true;
             Vector3 pos = transform.position;
             float newY = Mathf.Lerp(pos.y, Y, Time.deltaTime * 2);
             transform.position = new Vector3(pos.x, newY, pos.z);
@@ -31,6 +34,7 @@ public class Crips : MonoBehaviour
             {
                 transform.position = new Vector3(pos.x, Y, pos.z);
                 elevator = false;
+                rb.isKinematic = false;
             }
         }
         else 
@@ -50,10 +54,22 @@ public class Crips : MonoBehaviour
                 if (distance < 1f && Time.time >= Timing + 3f)
                 {
                     Plyer.hp -= damage;
-
                     Plyer.health.set_health(Plyer.hp);
+                    Rigidbody playerRB = Plyer.GetComponent<Rigidbody>();
+                    if (playerRB != null)
+                    {
 
+                        Vector3 pushDirection = (player.position - transform.position).normalized;
+                        pushDirection.y = 0.1f;
+                        Plyer.blocker = true;
+                        playerRB.AddForce(pushDirection.normalized * 400f, ForceMode.Impulse);
+
+                    }
                     Timing = Time.time;
+                }
+                if (Time.time >= Timing + 1.0f)
+                {
+                    Plyer.blocker = false;
                 }
                 // ... (логика вращения)
             }
@@ -71,7 +87,7 @@ public class Crips : MonoBehaviour
             Debug.Log("да");
             Vector3 pushDirection = transform.position - collision.transform.position;
             pushDirection.y = 0;
-            transform.position += pushDirection * Time.deltaTime * 2f;
+            rb.AddForce(pushDirection.normalized * 80f, ForceMode.Acceleration);
         }
     }
 

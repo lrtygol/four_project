@@ -53,7 +53,8 @@ public class Run : MonoBehaviour
         //Randix();
         Debug.Log(health);
         rb = GetComponent<Rigidbody>();
-
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         AudioSource = GetComponent<AudioSource>();
     }
     public void Randix()
@@ -193,6 +194,7 @@ public class Run : MonoBehaviour
 
                     Randix();
                     Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
                     DieScreen.SetActive(true);
                     transform.position = new Vector3(149, 151, -41);
                     hp = 100;
@@ -215,6 +217,7 @@ public class Run : MonoBehaviour
                 
                 Randix();
                 Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
                 DieScreen.SetActive(true);
                 transform.position = new Vector3(149, 151, -41);
                 hp = 100;
