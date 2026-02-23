@@ -43,7 +43,7 @@ public class Crips : MonoBehaviour
 
             float distance = Vector3.Distance(transform.position, player.position);
             
-            if (distance <= 20 && speed > 0)
+            if (distance <= 20 && speed > 0 && Time.time >= Timing + 3f)
             {
                 // ... (логика движения)
                 Vector3 direction = (player.position - transform.position).normalized;
@@ -51,33 +51,46 @@ public class Crips : MonoBehaviour
                 transform.position += direction * speed * Time.deltaTime;
                 Quaternion rotate = Quaternion.LookRotation(direction) * Quaternion.Euler(-90, 0, 0);
                 transform.rotation = rotate;
-                if (distance < 1f && Time.time >= Timing + 3f)
+                if (distance < 1f)
                 {
                     Plyer.hp -= damage;
                     Plyer.health.set_health(Plyer.hp);
                     Rigidbody playerRB = Plyer.GetComponent<Rigidbody>();
+
                     if (playerRB != null)
                     {
 
                         Vector3 pushDirection = (player.position - transform.position).normalized;
-                        pushDirection.y = 0.1f;
+                        playerRB.velocity = Vector3.zero;
+                        pushDirection.y = 0.3f;
                         Plyer.blocker = true;
                         playerRB.AddForce(pushDirection.normalized * 400f, ForceMode.Impulse);
 
                     }
+
                     Timing = Time.time;
                 }
-                if (Time.time >= Timing + 1.0f)
-                {
-                    Plyer.blocker = false;
-                }
-                // ... (логика вращения)
+                
+            }
+            if (Time.time >= Timing + 1.0f)
+            {
+                Plyer.blocker = false;
             }
         }
 
     }
 
-
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("sword"))
+        {
+            Run Plyer = player.GetComponent<Run>();
+            if (Plyer.isAttacking)
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
 
     void OnCollisionStay(Collision collision)
     {

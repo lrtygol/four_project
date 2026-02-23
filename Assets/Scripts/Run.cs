@@ -22,6 +22,7 @@ public class Run : MonoBehaviour
     public VideoPlayer vdplayer;
     public bool blocker = false;
     public bool block = false;
+    public bool isAttacking = false;
     public float blockDuration = 1f;
     private float blockEndTime = 0f;
 

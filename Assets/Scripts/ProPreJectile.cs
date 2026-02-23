@@ -46,7 +46,10 @@ public class ProPreJectile : MonoBehaviour
             BossScript.TakeDamage(damage);
             Explode(damage * 5);
         }
-
+        else if (other.CompareTag("crip") && reflected)
+        {
+            Destroy(other.gameObject);
+        }
         else if (other.CompareTag("place"))
         {
 
