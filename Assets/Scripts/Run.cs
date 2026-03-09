@@ -133,9 +133,9 @@ public class Run : MonoBehaviour
             Shield.SetActive(true);
             Debug.Log("Blocked");
             block = true;
+            anim.SetTrigger("Def");
             blockEndTime = Time.time + blockDuration;
             
-
 
         }
 

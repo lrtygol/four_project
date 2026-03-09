@@ -79,19 +79,772 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: 
+    animationImportWarnings: "\nClip 'Mini Simple Skeleton Armature|Attack' has import
+      animation warnings that might lower retargeting quality:\nNote: Activate translation
+      DOF on avatar to improve retargeting quality.\n\t'Neck' is inbetween humanoid
+      transforms and has rotation animation that will be discarded.\n\nClip 'Mini
+      Simple Skeleton Armature|Mini Simple Skeleton ArmatureAction' has import animation
+      warnings that might lower retargeting quality:\nNote: Activate translation
+      DOF on avatar to improve retargeting quality.\n\t'Neck' is inbetween humanoid
+      transforms and has rotation animation that will be discarded.\n\nClip 'Mini
+      Simple Skeleton Armature|Shield' has import animation warnings that might lower
+      retargeting quality:\nNote: Activate translation DOF on avatar to improve retargeting
+      quality.\n\t'Neck' is inbetween humanoid transforms and has rotation animation
+      that will be discarded.\n\nClip 'Mini Simple Skeleton Armature|WALK' has import
+      animation warnings that might lower retargeting quality:\nNote: Activate translation
+      DOF on avatar to improve retargeting quality.\n\t'Neck' is inbetween humanoid
+      transforms and has rotation animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: sword_hero|sword_woodAction.001
+      takeName: sword_hero|sword_woodAction.001
+      internalID: -2031610406354386611
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Mini Simple Skeleton Armature|A_POSE
+      takeName: Mini Simple Skeleton Armature|A_POSE
+      internalID: -6275897058443535164
+      firstFrame: 0
+      lastFrame: 21
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Mini Simple Skeleton Armature|Attack
+      takeName: Mini Simple Skeleton Armature|Attack
+      internalID: 8887655528480658038
+      firstFrame: 0
+      lastFrame: 21
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Mini Simple Skeleton Armature|Mini Simple Skeleton ArmatureAction
+      takeName: Mini Simple Skeleton Armature|Mini Simple Skeleton ArmatureAction
+      internalID: 5026071637187886658
+      firstFrame: 0
+      lastFrame: 36
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Mini Simple Skeleton Armature|Mini Simple Skeleton Armature|Mini Simple
+        Skeleton ArmatureAction
+      takeName: Mini Simple Skeleton Armature|Mini Simple Skeleton Armature|Mini
+        Simple Skeleton ArmatureAction
+      internalID: 7576222294829439782
+      firstFrame: 0
+      lastFrame: 19
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Mini Simple Skeleton Armature|Mini Simple Tribal Armature|body_armsAction
+      takeName: Mini Simple Skeleton Armature|Mini Simple Tribal Armature|body_armsAction
+      internalID: -8771458965272908760
+      firstFrame: 0
+      lastFrame: 0
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Mini Simple Skeleton Armature|Mini Simple Tribal Armature|body_headAction
+      takeName: Mini Simple Skeleton Armature|Mini Simple Tribal Armature|body_headAction
+      internalID: -2125099250131586258
+      firstFrame: 0
+      lastFrame: 0
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Mini Simple Skeleton Armature|Mini Simple Tribal Armature|body_legsAction
+      takeName: Mini Simple Skeleton Armature|Mini Simple Tribal Armature|body_legsAction
+      internalID: -6620097211469439661
+      firstFrame: 0
+      lastFrame: 0
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Mini Simple Skeleton Armature|Mini Simple Tribal Armature|body_torsoAction
+      takeName: Mini Simple Skeleton Armature|Mini Simple Tribal Armature|body_torsoAction
+      internalID: -9051156920045062960
+      firstFrame: 0
+      lastFrame: 0
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Mini Simple Skeleton Armature|Mini Simple Tribal Armature|Idle
+      takeName: Mini Simple Skeleton Armature|Mini Simple Tribal Armature|Idle
+      internalID: -1741201385027233330
+      firstFrame: 0
+      lastFrame: 42
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Mini Simple Skeleton Armature|Mini Simple Tribal Armature|Jump
+      takeName: Mini Simple Skeleton Armature|Mini Simple Tribal Armature|Jump
+      internalID: 3528825268796696375
+      firstFrame: 0
+      lastFrame: 35
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Mini Simple Skeleton Armature|Mini Simple Tribal Armature|Loose
+      takeName: Mini Simple Skeleton Armature|Mini Simple Tribal Armature|Loose
+      internalID: -4551098034736705802
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Mini Simple Skeleton Armature|Mini Simple Tribal Armature|Mini Simple
+        Tribal Armature|Mini Simple Tribal Armature|Idle
+      takeName: Mini Simple Skeleton Armature|Mini Simple Tribal Armature|Mini Simple
+        Tribal Armature|Mini Simple Tribal Armature|Idle
+      internalID: 2082635697972578302
+      firstFrame: 0
+      lastFrame: 15
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Mini Simple Skeleton Armature|Mini Simple Tribal Armature|Mini Simple
+        Tribal Armature|Mini Simple Tribal Armature|Jump
+      takeName: Mini Simple Skeleton Armature|Mini Simple Tribal Armature|Mini Simple
+        Tribal Armature|Mini Simple Tribal Armature|Jump
+      internalID: 2753692963726482490
+      firstFrame: 0
+      lastFrame: 35
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Mini Simple Skeleton Armature|Mini Simple Tribal Armature|Mini Simple
+        Tribal Armature|Mini Simple Tribal Armature|Loose
+      takeName: Mini Simple Skeleton Armature|Mini Simple Tribal Armature|Mini Simple
+        Tribal Armature|Mini Simple Tribal Armature|Loose
+      internalID: -4936480418398564580
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Mini Simple Skeleton Armature|Mini Simple Tribal Armature|Mini Simple
+        Tribal Armature|Mini Simple Tribal Armature|Run
+      takeName: Mini Simple Skeleton Armature|Mini Simple Tribal Armature|Mini Simple
+        Tribal Armature|Mini Simple Tribal Armature|Run
+      internalID: 2501767117705142741
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Mini Simple Skeleton Armature|Mini Simple Tribal Armature|Mini Simple
+        Tribal Armature|Mini Simple Tribal Armature|TPose
+      takeName: Mini Simple Skeleton Armature|Mini Simple Tribal Armature|Mini Simple
+        Tribal Armature|Mini Simple Tribal Armature|TPose
+      internalID: -3767477956325040217
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Mini Simple Skeleton Armature|Mini Simple Tribal Armature|Mini Simple
+        Tribal Armature|Mini Simple Tribal Armature|Walk
+      takeName: Mini Simple Skeleton Armature|Mini Simple Tribal Armature|Mini Simple
+        Tribal Armature|Mini Simple Tribal Armature|Walk
+      internalID: 5933573083476517317
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Mini Simple Skeleton Armature|Mini Simple Tribal Armature|Run
+      takeName: Mini Simple Skeleton Armature|Mini Simple Tribal Armature|Run
+      internalID: -197698650685906195
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Mini Simple Skeleton Armature|Mini Simple Tribal Armature|TPose
+      takeName: Mini Simple Skeleton Armature|Mini Simple Tribal Armature|TPose
+      internalID: 1609225160778150814
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Mini Simple Skeleton Armature|Mini Simple Tribal Armature|Walk
+      takeName: Mini Simple Skeleton Armature|Mini Simple Tribal Armature|Walk
+      internalID: -1724502200228270968
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Mini Simple Skeleton Armature|Run
+      takeName: Mini Simple Skeleton Armature|Run
+      internalID: 4190911643374668905
+      firstFrame: 0
+      lastFrame: 35
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Mini Simple Skeleton Armature|Run.001
+      takeName: Mini Simple Skeleton Armature|Run.001
+      internalID: -4641104072095550031
+      firstFrame: 0
+      lastFrame: 35
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Mini Simple Skeleton Armature|Shield
+      takeName: Mini Simple Skeleton Armature|Shield
+      internalID: 8010238788916809123
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Mini Simple Skeleton Armature|WALK
+      takeName: Mini Simple Skeleton Armature|WALK
+      internalID: 3976898572010330719
+      firstFrame: 0
+      lastFrame: 36
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []
@@ -140,8 +893,390 @@ ModelImporter:
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
-    human: []
-    skeleton: []
+    human:
+    - boneName: Hips
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LeftUpLeg
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RightUpLeg
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LeftLeg
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RightLeg
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LeftFoot
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RightFoot
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Spine
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Spine1
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LeftArm
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RightArm
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LeftForeArm
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RightForeArm
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LeftHand
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RightHand
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LeftToeBase
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RightToeBase
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Spine2
+      humanName: UpperChest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: skeletswordshield(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mini Simple Skeleton Armature
+      parentName: skeletswordshield(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.0000017503904, y: -0, z: -0, w: 1}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Hips
+      parentName: Mini Simple Skeleton Armature
+      position: {x: -0, y: 0.004652362, z: 0.000046801004}
+      rotation: {x: -0.0000017249776, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Spine
+      parentName: Hips
+      position: {x: -0, y: 0.00064097985, z: -0.000009722268}
+      rotation: {x: -0.0075832545, y: -0, z: -0, w: 0.9999713}
+      scale: {x: 1, y: 0.9999997, z: 0.99999964}
+    - name: Spine1
+      parentName: Spine
+      position: {x: -0, y: 0.0007478983, z: -4.6566128e-12}
+      rotation: {x: -0.00000001071021, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 0.99999976, z: 0.9999996}
+    - name: Spine2
+      parentName: Spine1
+      position: {x: -0, y: 0.000854739, z: -1.04773785e-11}
+      rotation: {x: -0.0013200263, y: 7.588548e-10, z: -0.0000001000667, w: 0.99999917}
+      scale: {x: 1, y: 0.9999998, z: 0.99999994}
+    - name: Neck
+      parentName: Spine2
+      position: {x: -1.9244634e-10, y: 0.0009615787, z: 0.0000025386662}
+      rotation: {x: 0.008029194, y: -8.7470586e-11, z: 0.000000100069684, w: 0.9999678}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Head
+      parentName: Neck
+      position: {x: -5.6783104e-23, y: 0.00045781056, z: 0}
+      rotation: {x: 0.0006433446, y: -1.5265567e-16, z: -1.414531e-13, w: 0.9999999}
+      scale: {x: 1, y: 0.9999999, z: 0.99999994}
+    - name: HeadTop_End
+      parentName: Head
+      position: {x: 1.3134077e-24, y: 0.006287281, z: 1.4551915e-13}
+      rotation: {x: 0.00023073613, y: -1.1617717e-17, z: -1.4862325e-14, w: 1}
+      scale: {x: 1, y: 0.9999999, z: 0.99999994}
+    - name: HeadTop_End_end
+      parentName: HeadTop_End
+      position: {x: -0, y: 0.006287279, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: LeftShoulder
+      parentName: Spine2
+      position: {x: -0.000782805, y: 0.00074776623, z: -0.0000021881353}
+      rotation: {x: 0.5737169, y: -0.41368672, z: 0.5766042, w: 0.40894973}
+      scale: {x: 1.0000012, y: 1.0000013, z: 1.000001}
+    - name: LeftArm
+      parentName: LeftShoulder
+      position: {x: -3.4924596e-12, y: 0.00088901375, z: 0.0000000011606562}
+      rotation: {x: -0.1253745, y: 0.0003039688, z: -0.0030727088, w: 0.99210477}
+      scale: {x: 1.0000011, y: 1.0000019, z: 1.0000014}
+    - name: LeftForeArm
+      parentName: LeftArm
+      position: {x: -1.4901161e-10, y: 0.0023663251, z: -1.11758706e-10}
+      rotation: {x: -0.029594399, y: -0.00009103046, z: 0.0020540333, w: 0.99955994}
+      scale: {x: 1.0000015, y: 1.0000005, z: 1.0000008}
+    - name: LeftHand
+      parentName: LeftForeArm
+      position: {x: 6.705522e-10, y: 0.00163329, z: -3.72529e-10}
+      rotation: {x: 0.06380469, y: 0.004660587, z: 0.10289672, w: 0.9926326}
+      scale: {x: 0.999999, y: 0.9999994, z: 1}
+    - name: LeftHand_Dummy
+      parentName: LeftHand
+      position: {x: 2.2351741e-10, y: 0.0010404509, z: -4.2840836e-10}
+      rotation: {x: -0.11568932, y: -0.015039626, z: -0.17330812, w: 0.97793365}
+      scale: {x: 1.0000001, y: 1.0000004, z: 0.99999994}
+    - name: LeftHand_Dummy_end
+      parentName: LeftHand_Dummy
+      position: {x: -0, y: 0.0016842826, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: LeftHand.001
+      parentName: LeftHand
+      position: {x: 2.2351741e-10, y: 0.0010404509, z: -4.2840836e-10}
+      rotation: {x: 0.41628495, y: 0.12619376, z: -0.2755859, w: 0.8572249}
+      scale: {x: 1.0000005, y: 1.0000006, z: 1.0000006}
+    - name: Shield_03
+      parentName: LeftHand.001
+      position: {x: 0.0008592766, y: -0.0006190641, z: -0.00034027963}
+      rotation: {x: 0.6739821, y: 0.6154127, z: 0.13555193, w: 0.3855399}
+      scale: {x: 1.0000001, y: 1.0000001, z: 0.99999994}
+    - name: LeftHand.001_end
+      parentName: LeftHand.001
+      position: {x: -0, y: 0.00223138, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RightShoulder
+      parentName: Spine2
+      position: {x: 0.0007828052, y: 0.00074773206, z: -0.0000003505565}
+      rotation: {x: -0.5724474, y: -0.41369835, z: 0.5778477, w: -0.40896168}
+      scale: {x: 1.0000014, y: 1.0000018, z: 1.0000015}
+    - name: RightArm
+      parentName: RightShoulder
+      position: {x: -6.4028427e-12, y: 0.00088901876, z: 7.521157e-10}
+      rotation: {x: -0.12531233, y: 0.00021381676, z: 0.005387366, w: 0.99210274}
+      scale: {x: 0.999999, y: 0.9999986, z: 0.9999992}
+    - name: RightForeArm
+      parentName: RightArm
+      position: {x: -1.2107193e-10, y: 0.0023663207, z: 0}
+      rotation: {x: -0.029588405, y: 0.00142912, z: -0.0016633373, w: 0.99955976}
+      scale: {x: 1.0000008, y: 1.0000015, z: 0.9999999}
+    - name: RightHand
+      parentName: RightForeArm
+      position: {x: -3.352761e-10, y: 0.0016332908, z: 2.1420418e-10}
+      rotation: {x: -0.018050773, y: 0.001572669, z: 0.007077318, w: 0.9998108}
+      scale: {x: 1.0000011, y: 1, z: 1.0000002}
+    - name: RightHand_Dummy
+      parentName: RightHand
+      position: {x: -3.7252902e-11, y: 0.0015506288, z: -5.5879353e-11}
+      rotation: {x: -0.026094917, y: -0.011312737, z: -0.00028549906, w: -0.9995954}
+      scale: {x: 0.99999994, y: 1.0000006, z: 1.0000006}
+    - name: RightHand_Dummy_end
+      parentName: RightHand_Dummy
+      position: {x: -0, y: 0.0011185947, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RightHand.001
+      parentName: RightHand
+      position: {x: -3.7252902e-11, y: 0.0015506288, z: -5.5879353e-11}
+      rotation: {x: 0.09983, y: 0.00046100735, z: -0.74878347, w: -0.6552535}
+      scale: {x: 1.000001, y: 1, z: 1.0000007}
+    - name: sword_hero.001
+      parentName: RightHand.001
+      position: {x: -0.00041390985, y: -0.000029177665, z: -0.000026815533}
+      rotation: {x: -0.15490152, y: 0.6965885, z: 0.66838413, w: 0.20983976}
+      scale: {x: 0.92848796, y: 0.9284884, z: 0.92848796}
+    - name: RightHand.001_end
+      parentName: RightHand.001
+      position: {x: -0, y: 0.006380694, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Spine2_Dummy
+      parentName: Spine2
+      position: {x: 1.6455722e-16, y: 0.00081902585, z: 2.619345e-12}
+      rotation: {x: -0.70078343, y: 0.00000001428095, z: -0.00000001278002, w: 0.71337414}
+      scale: {x: 1, y: 1.0000007, z: 1.0000005}
+    - name: Spine2_Dummy_end
+      parentName: Spine2_Dummy
+      position: {x: -0, y: 0.0009864271, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: LeftUpLeg
+      parentName: Hips
+      position: {x: -0.0010814909, y: -0.00035641852, z: -0.00003923581}
+      rotation: {x: -0.0001681399, y: -0.0012864929, z: 0.99998385, w: 0.005542388}
+      scale: {x: 1.0000013, y: 1.0000007, z: 1.0000002}
+    - name: LeftLeg
+      parentName: LeftUpLeg
+      position: {x: -2.1536835e-11, y: 0.0020980968, z: -2.892193e-11}
+      rotation: {x: -0.10152818, y: 0.00016985202, z: -0.0044352137, w: 0.9948228}
+      scale: {x: 1.0000007, y: 1.000001, z: 0.9999995}
+    - name: LeftFoot
+      parentName: LeftLeg
+      position: {x: 8.2945914e-11, y: 0.0016512503, z: -6.810296e-11}
+      rotation: {x: 0.61064065, y: 0.0003741397, z: 0.005763961, w: 0.79188687}
+      scale: {x: 1.0000035, y: 1.000001, z: 1.000001}
+    - name: LeftToeBase
+      parentName: LeftFoot
+      position: {x: -7.628841e-11, y: 0.0012144727, z: 2.4447217e-11}
+      rotation: {x: 0.22945651, y: -0.0000012453526, z: -0.0023702579, w: 0.973316}
+      scale: {x: 1.0000005, y: 1.0000019, z: 1}
+    - name: LeftToe_End
+      parentName: LeftToeBase
+      position: {x: -4.249159e-11, y: 0.0012144732, z: -3.4924594e-11}
+      rotation: {x: -0.00000020861621, y: 0.0000000021655064, z: 0.0000000016423765, w: 1}
+      scale: {x: 1.0000006, y: 1.0000004, z: 1.0000005}
+    - name: LeftToe_End_end
+      parentName: LeftToe_End
+      position: {x: -0, y: 0.0012144729, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RightUpLeg
+      parentName: Hips
+      position: {x: 0.0010814908, y: -0.00035641916, z: -0.000029633637}
+      rotation: {x: 0.000008515136, y: 0.0038813516, z: 0.9999771, w: -0.0055421167}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RightLeg
+      parentName: RightUpLeg
+      position: {x: -3.1349572e-11, y: 0.002098153, z: -5.0454215e-12}
+      rotation: {x: -0.11581119, y: -0.008133917, z: 0.0053297463, w: 0.99322367}
+      scale: {x: 1.0000018, y: 1.0000015, z: 0.9999999}
+    - name: RightFoot
+      parentName: RightLeg
+      position: {x: 8.1490726e-12, y: 0.001657933, z: 2.3283064e-12}
+      rotation: {x: 0.6178653, y: 0.0058834846, z: -0.010614283, w: 0.78619033}
+      scale: {x: 1.0000025, y: 1.000001, z: 1.0000011}
+    - name: RightToeBase
+      parentName: RightFoot
+      position: {x: -3.066816e-11, y: 0.0012144725, z: -5.47152e-11}
+      rotation: {x: 0.22945654, y: -0.0000015420371, z: 0.0023791813, w: 0.973316}
+      scale: {x: 0.99999964, y: 1.0000007, z: 0.999999}
+    - name: RightToe_End
+      parentName: RightToeBase
+      position: {x: 3.4961988e-11, y: 0.0012144721, z: -3.5419133e-12}
+      rotation: {x: 0.0000014752147, y: -8.550386e-10, z: 0.000000014756578, w: 1}
+      scale: {x: 1.0000014, y: 1.0000004, z: 1.000001}
+    - name: RightToe_End_end
+      parentName: RightToe_End
+      position: {x: -0, y: 0.0012144723, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: body_arms
+      parentName: skeletswordshield(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.0000017503903, y: 0, z: -0, w: 1}
+      scale: {x: 100, y: 100, z: 100}
+    - name: body_head
+      parentName: skeletswordshield(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.0000017503903, y: 0, z: -0, w: 1}
+      scale: {x: 100, y: 100, z: 100}
+    - name: body_legs
+      parentName: skeletswordshield(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.0000017503903, y: 0, z: -0, w: 1}
+      scale: {x: 100, y: 100, z: 100}
+    - name: body_torso
+      parentName: skeletswordshield(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.0000017503903, y: 0, z: -0, w: 1}
+      scale: {x: 100, y: 100, z: 100}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -152,13 +1287,13 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 2
+  animationType: 3
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0
