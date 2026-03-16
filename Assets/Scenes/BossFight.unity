@@ -3596,11 +3596,12 @@ MonoBehaviour:
   sprint: 10
   DieScreen: {fileID: 0}
   vdplayer: {fileID: 0}
+  Sword: {fileID: 0}
+  isAttacking: 0
+  Shield: {fileID: 993213127}
   blocker: 0
   block: 0
-  isAttacking: 0
   blockDuration: 1
-  Shield: {fileID: 993213127}
   health: {fileID: 917002828}
   hp: 100
   damage_CD: 5
@@ -3894,6 +3895,51 @@ Transform:
   m_Father: {fileID: 1514744651}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2060089822
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2060089823}
+  - component: {fileID: 2060089824}
+  m_Layer: 6
+  m_Name: Attackcol
+  m_TagString: Sword
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &2060089823
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060089822}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 82083195252053512}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2060089824
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060089822}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.002, y: 0.0004, z: 0.01}
+  m_Center: {x: 0, y: 0, z: 0.005}
 --- !u!1 &2064034114
 GameObject:
   m_ObjectHideFlags: 0
@@ -4132,7 +4178,8 @@ Transform:
   m_LocalPosition: {x: -0.00041390985, y: -0.000029177665, z: -0.000026815533}
   m_LocalScale: {x: 0.92848796, y: 0.9284884, z: 0.92848796}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2060089823}
   m_Father: {fileID: 4557811037249002085}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4289,7 +4336,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.49021912
+  m_Radius: 0.4
   m_Height: 1.4957123
   m_Direction: 1
   m_Center: {x: 0, y: 0.7210007, z: 0}
@@ -4322,7 +4369,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 69ce5dd747afb75488c00ed0f554f1d6, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -4474,11 +4521,12 @@ MonoBehaviour:
   sprint: 10
   DieScreen: {fileID: 0}
   vdplayer: {fileID: 0}
+  Sword: {fileID: 2060089822}
+  isAttacking: 0
+  Shield: {fileID: 993213127}
   blocker: 0
   block: 0
-  isAttacking: 0
   blockDuration: 1
-  Shield: {fileID: 993213127}
   health: {fileID: 917002828}
   hp: 100
   damage_CD: 5
@@ -4584,7 +4632,9 @@ SkinnedMeshRenderer:
   - {fileID: 3636041359062297360}
   - {fileID: 2364864183455550169}
   - {fileID: 7771975578571190186}
-  m_BlendShapeWeights: []
+  m_BlendShapeWeights:
+  - 0
+  - 0
   m_RootBone: {fileID: 4600056679867641737}
   m_AABB:
     m_Center: {x: 0, y: 0.0066282446, z: -0.00044824136}

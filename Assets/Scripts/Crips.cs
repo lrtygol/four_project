@@ -82,7 +82,7 @@ public class Crips : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("sword"))
+        if (other.gameObject.CompareTag("Sword"))
         {
             Run Plyer = player.GetComponent<Run>();
             if (Plyer.isAttacking)

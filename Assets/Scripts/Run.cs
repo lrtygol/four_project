@@ -18,15 +18,22 @@ public class Run : MonoBehaviour
     public float S = 1000f;
     public int speed = 4;
     public int sprint = 10;
+
     public GameObject DieScreen;
     public VideoPlayer vdplayer;
+
+    public GameObject Sword;
+    public bool isAttacking = false;
+    
+    
+
+
+    public GameObject Shield;
     public bool blocker = false;
     public bool block = false;
-    public bool isAttacking = false;
     public float blockDuration = 1f;
     private float blockEndTime = 0f;
 
-    public GameObject Shield;
     public health health;
     public int hp = 100;
     public float damage_CD = 0.5f;
@@ -111,8 +118,18 @@ public class Run : MonoBehaviour
         Vector3 moveDerection = (cameraForward * vertical) + (cameraRight * horizontal);
         moveDerection.y = 0;
         moveDerection.Normalize();
+        //Debug.Log(isAttacking);
+        if (Input.GetKeyDown(KeyCode.Mouse0) && isAttacking == false)
+        {
+            
+            Debug.Log("Удар");
+            isAttacking = true;
+            anim.SetTrigger("Attack");
+            
+        }
 
         
+
         if (Time.time >= blockEndTime)
         {
             Shield.SetActive(false);
@@ -282,5 +299,16 @@ public class Run : MonoBehaviour
         }
 
     }
+    public void Enable_Attack()
+    {
 
+        Sword.SetActive(true);
+    }
+
+    public void Disable_Attack()
+    {
+        Sword.SetActive(false);
+        isAttacking = false;
+        Debug.Log(isAttacking);
+    }
 }

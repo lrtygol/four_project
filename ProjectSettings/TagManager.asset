@@ -15,6 +15,7 @@ TagManager:
   - Boss
   - shield
   - crip
+  - Sword
   layers:
   - Default
   - TransparentFX
