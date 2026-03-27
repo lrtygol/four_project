@@ -11,7 +11,7 @@ public class ProPreJectile : MonoBehaviour
     public bool onehit = false;
     private Quaternion Rotation = Quaternion.Euler(-90f, 0, 0);
     private bool reflected = false;
-
+    
 
     private Vector3 Direction;
     void Start()
@@ -22,7 +22,11 @@ public class ProPreJectile : MonoBehaviour
     {
         Direction = (PlayerPos - transform.position).normalized;
     }
-    
+    public void launch2(Vector3 DiR)
+    {
+        Direction = DiR.normalized; 
+    }
+
     void Update()
     {
         transform.position += Direction * speed * Time.deltaTime;

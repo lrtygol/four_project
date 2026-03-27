@@ -9,16 +9,20 @@ public class Boss : MonoBehaviour
     public int Maxhp = 1000;
     private int currethp;
     public Transform Plocation;
-    public GameObject ProPrefabJectile;
+    
     public Transform attackPoint;
     public float attackCD = 4f;
     private float nextAttackTime;
     public Slider Boss_slider;
     public int Phase = 1;
-    
+
+    public float MeteorCD = 1f;
+    private float nextMeteorTime;
+
     public GameObject crips;
     public BoxCollider SpawnArea;
-    
+    public GameObject ProPrefabJectile;
+    public BoxCollider MeteorArea;
 
     void Start()
     {
@@ -46,6 +50,11 @@ public class Boss : MonoBehaviour
             Debug.Log(currethp);
             nextAttackTime = Time.time + attackCD;
         }
+        if (Phase == 3 &&  Time.time >= nextMeteorTime)
+        {
+            meteors();
+            nextMeteorTime = Time.time + MeteorCD;
+        }
     }
 
     void ChangePhase()
@@ -69,7 +78,7 @@ public class Boss : MonoBehaviour
         if (currethp <= 600 && currethp >= 400 && Phase == 2)
         {
             Phase = 3;
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 20; i++)
             {
                 Bounds A = SpawnArea.bounds;
                 Vector3 RandomPos = new Vector3(
@@ -78,8 +87,9 @@ public class Boss : MonoBehaviour
                     Random.Range(A.min.z, A.max.z)
                     );
                 GameObject spawning = Instantiate(crips, RandomPos, Quaternion.Euler(-90, 0, 0));
-            }
 
+            }
+            
         }
     }
     
@@ -104,5 +114,19 @@ public class Boss : MonoBehaviour
         ProPreJectile projectScript = projectile.GetComponent<ProPreJectile>();
         projectScript.launch(Plocation.position);
 
+    }
+
+    void meteors()
+    {
+
+        Bounds C = MeteorArea.bounds;
+        Vector3 RandomPos = new Vector3(
+            Random.Range(C.min.x, C.max.x),
+            C.min.y,
+            Random.Range(C.min.z, C.max.z)
+            );
+        GameObject Meteor = Instantiate(ProPrefabJectile, RandomPos, MeteorArea.transform.rotation);
+        ProPreJectile projectScript = Meteor.GetComponent<ProPreJectile>();
+        projectScript.launch(MeteorArea.transform.up );
     }
 }
