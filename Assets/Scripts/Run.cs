@@ -119,10 +119,10 @@ public class Run : MonoBehaviour
         moveDerection.y = 0;
         moveDerection.Normalize();
         //Debug.Log(isAttacking);
-        if (Input.GetKeyDown(KeyCode.Mouse0) && isAttacking == false)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && isAttacking == false && block == false)
         {
             
-            Debug.Log("Удар");
+            //Debug.Log("Удар");
             isAttacking = true;
             anim.SetTrigger("Attack");
             
@@ -145,10 +145,11 @@ public class Run : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.Mouse1) && block == false)
+        if (Input.GetKeyDown(KeyCode.Mouse1) && block == false && isAttacking == false)
         {
             Shield.SetActive(true);
-            Debug.Log("Blocked");
+            //Debug.Log("Blocked");
+            isAttacking = false;
             block = true;
             anim.SetTrigger("Def");
             blockEndTime = Time.time + blockDuration;
@@ -299,16 +300,20 @@ public class Run : MonoBehaviour
         }
 
     }
+
     public void Enable_Attack()
     {
-
+        
+        
         Sword.SetActive(true);
+        
+
     }
 
     public void Disable_Attack()
     {
         Sword.SetActive(false);
         isAttacking = false;
-        Debug.Log(isAttacking);
+        //Debug.Log(isAttacking);
     }
 }

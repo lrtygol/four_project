@@ -15,6 +15,7 @@ public class Boss : MonoBehaviour
     private float nextAttackTime;
     public Slider Boss_slider;
     public int Phase = 1;
+    
     public GameObject crips;
     public BoxCollider SpawnArea;
     
@@ -42,14 +43,14 @@ public class Boss : MonoBehaviour
         if (Time.time >= nextAttackTime)
         {
             attack();
-
+            Debug.Log(currethp);
             nextAttackTime = Time.time + attackCD;
         }
     }
 
     void ChangePhase()
     {
-        if (currethp <= 1000 && currethp >= 600 && Phase == 1)
+        if (currethp <= 800 && currethp >= 600 && Phase == 1)
         {
             Phase = 2;
             for (int i = 0; i < 10; i++)
@@ -64,6 +65,21 @@ public class Boss : MonoBehaviour
                 GameObject spawning = Instantiate(crips, RandomPos, Quaternion.Euler(-90, 0, 0));
                 
             }
+        }
+        if (currethp <= 600 && currethp >= 400 && Phase == 2)
+        {
+            Phase = 3;
+            for (int i = 0; i < 10; i++)
+            {
+                Bounds A = SpawnArea.bounds;
+                Vector3 RandomPos = new Vector3(
+                    Random.Range(A.min.x, A.max.x),
+                    A.min.y,
+                    Random.Range(A.min.z, A.max.z)
+                    );
+                GameObject spawning = Instantiate(crips, RandomPos, Quaternion.Euler(-90, 0, 0));
+            }
+
         }
     }
     

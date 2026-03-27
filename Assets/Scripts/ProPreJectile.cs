@@ -37,14 +37,14 @@ public class ProPreJectile : MonoBehaviour
         Run Plyer = other.GetComponent<Run>();
         if (Plyer != null && !reflected)
         {
-            Explode(damage * 5);
+            Explode(damage);
             return;
         }
         else if (other.CompareTag("Boss") && reflected)
         {
             Boss BossScript = other.GetComponent<Boss>();
-            BossScript.TakeDamage(damage);
-            Explode(damage * 5);
+            BossScript.TakeDamage(damage * 10);
+            Explode(damage);
         }
         else if (other.CompareTag("crip") && reflected)
         {
