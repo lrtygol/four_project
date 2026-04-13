@@ -16,6 +16,7 @@ TagManager:
   - shield
   - crip
   - Sword
+  - Heal
   layers:
   - Default
   - TransparentFX
