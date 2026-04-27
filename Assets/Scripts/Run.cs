@@ -94,7 +94,6 @@ public class Run : MonoBehaviour
             
             
         
-        
 
         float MouseX = Input.GetAxis("Mouse X") * sensitivity;
         float MouseY = Input.GetAxis("Mouse Y") * sensitivity;
@@ -223,6 +222,24 @@ public class Run : MonoBehaviour
             
             
         }
+
+
+
+        if (other.gameObject.CompareTag("Heal"))
+        {
+            if (hp < 100)
+            {
+                hp += 20;
+                if (hp > 100)
+                {
+                    hp = 100;
+                }
+                health.set_health(hp);
+                Destroy(other.gameObject);
+            }
+        }
+
+
     }
     private void OnCollisionEnter(Collision collision)
     {
