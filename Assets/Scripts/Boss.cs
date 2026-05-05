@@ -22,6 +22,12 @@ public class Boss : MonoBehaviour
     private float nextHealthSpawn;
     public float HealthSpawnCD = 0.1f;
 
+
+    public float Distance_Meteor = 30f;
+    public float Spacing = 2f;
+    public int Meteors = 7;
+    public Transform attackLine;
+
     public float MeteorCD = 1f;
     private float nextMeteorTime;
 
@@ -34,7 +40,7 @@ public class Boss : MonoBehaviour
     {
         currethp = Maxhp;
         nextAttackTime = Time.time + attackCD;
-        HealSpawn = true;
+        
     }
 
     public void TakeDamage(int damage)
@@ -53,6 +59,7 @@ public class Boss : MonoBehaviour
 
         if (Time.time >= nextAttackTime)
         {
+            MeteorLine();
             attack();
             Debug.Log(currethp);
             nextAttackTime = Time.time + attackCD;
@@ -62,6 +69,19 @@ public class Boss : MonoBehaviour
         {
             meteors();
             nextMeteorTime = Time.time + MeteorCD;
+        }
+        if (Phase == 4 && Time.time >= nextMeteorTime)
+        {
+            meteors();
+            nextMeteorTime = Time.time + MeteorCD/3;
+            Debug.Log("3");
+        }
+        if (Phase == 5 && Time.time >= nextMeteorTime)
+        {
+            meteors();
+            nextMeteorTime = Time.time + MeteorCD / 4;
+            
+            Debug.Log("5");
         }
 
         if (Time.time >= nextHealthSpawn && HealSpawn)
@@ -84,7 +104,7 @@ public class Boss : MonoBehaviour
     {
         if (currethp <= 800 && currethp >= 600 && Phase == 1)
         {
-            Phase = 3;
+            Phase = 2;
             for (int i = 0; i < 10; i++)
             {
                 BoxCollider randomPart = SpawnArea[Random.Range(0, SpawnArea.Length)];
@@ -118,7 +138,32 @@ public class Boss : MonoBehaviour
             }
             
         }
-        
+        if (currethp <= 400 && currethp >= 200 && Phase == 3)
+        {
+            Phase = 4;
+            HealSpawn = true;
+
+            for (int i = 0; i < 40; i++)
+            {
+                BoxCollider randomPart = SpawnArea[Random.Range(0, SpawnArea.Length)];
+                Bounds A = randomPart.bounds;
+                Vector3 RandomPos = new Vector3(
+                    Random.Range(A.min.x, A.max.x),
+                    A.min.y,
+                    Random.Range(A.min.z, A.max.z)
+                    );
+                GameObject spawning = Instantiate(crips, RandomPos, Quaternion.Euler(-90, 0, 0));
+
+            }
+
+        }
+        if (currethp <= 200 && Phase == 4)
+        {
+            Phase = 5;
+            HealSpawn = true;
+
+            
+        }
     }
     
     //IEnumerator up (Transform CripPos, Vector3 TargetPos)
@@ -157,5 +202,19 @@ public class Boss : MonoBehaviour
         ProPreJectile projectScript = Meteor.GetComponent<ProPreJectile>();
         projectScript.launch(RandomPos + randomPart.transform.up );
 
+    }
+
+    void MeteorLine()
+    {
+        Vector3 ForwardDirection = attackLine.forward;
+        Vector3 CenterPoint = attackLine.position;
+        Vector3 StartPoint = CenterPoint - attackLine.right * (16 / 2);
+        for (int i = 0; i < Meteors; i++)
+        {
+            Vector3 SpawnPos = StartPoint + attackLine.right * (i * Spacing);
+            GameObject Meteor = Instantiate(ProPrefabJectile, SpawnPos, attackLine.rotation);
+            ProPreJectile projectScript = Meteor.GetComponent<ProPreJectile>();
+            projectScript.launch(SpawnPos + attackLine.up);
+        }
     }
 }
