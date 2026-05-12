@@ -20,8 +20,10 @@ public class Boss : MonoBehaviour
 
     public bool HealSpawn = false;
     private float nextHealthSpawn;
-    public float HealthSpawnCD = 0.1f;
+    public float HealthSpawnCD = 5f;
 
+    public GameObject parts;
+    
 
     public float Distance_Meteor = 30f;
     public float Spacing = 2f;
@@ -40,6 +42,7 @@ public class Boss : MonoBehaviour
     {
         currethp = Maxhp;
         nextAttackTime = Time.time + attackCD;
+        
         
     }
 
@@ -161,8 +164,9 @@ public class Boss : MonoBehaviour
         {
             Phase = 5;
             HealSpawn = true;
+            SpawnParts();
 
-            
+
         }
     }
     
@@ -202,6 +206,23 @@ public class Boss : MonoBehaviour
         ProPreJectile projectScript = Meteor.GetComponent<ProPreJectile>();
         projectScript.launch(RandomPos + randomPart.transform.up );
 
+    }
+
+    void SpawnParts()
+    {
+        Vector3 Center = SpawnArea[0].bounds.center;
+        float Start_X = Center.x - (150 / 2) + (15f / 2f);
+        float Start_Z = Center.z - (150 / 2) + (15f / 2f);
+        for (int i = 0; i < 10; i++)
+        {
+            for (int j = 0; j < 10; j++)
+            {
+                float Pos_X = Start_X + (i * 15);
+                float Pos_Z = Start_Z + (j * 15);
+                Vector3 SpawnPos = new Vector3(Pos_X, 190, Pos_Z);
+                Instantiate(parts, SpawnPos, Quaternion.identity);
+            }
+        }
     }
 
     void MeteorLine()
