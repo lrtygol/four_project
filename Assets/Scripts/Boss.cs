@@ -42,8 +42,9 @@ public class Boss : MonoBehaviour
     {
         currethp = Maxhp;
         nextAttackTime = Time.time + attackCD;
-        
-        
+        SpawnParts();
+
+
     }
 
     public void TakeDamage(int damage)
@@ -208,22 +209,55 @@ public class Boss : MonoBehaviour
 
     }
 
+    //void SpawnParts()
+    //{
+    //    Vector3 Center = SpawnArea[0].bounds.center;
+    //    float Start_X = Center.x - (150 / 2) + (15f / 2f);
+    //    float Start_Z = Center.z - (150 / 2) + (15f / 2f);
+    //    for (int i = 0; i < 10; i++)
+    //    {
+    //        for (int j = 0; j < 10; j++)
+    //        {
+    //            float Pos_X = Start_X + (i * 15);
+    //            float Pos_Z = Start_Z + (j * 15);
+    //            Vector3 SpawnPos = new Vector3(Pos_X, 190, Pos_Z);
+    //            Instantiate(parts, SpawnPos, Quaternion.identity);
+    //        }
+    //    }
+    //}
+
     void SpawnParts()
     {
         Vector3 Center = SpawnArea[0].bounds.center;
-        float Start_X = Center.x - (150 / 2) + (15f / 2f);
-        float Start_Z = Center.z - (150 / 2) + (15f / 2f);
-        for (int i = 0; i < 10; i++)
+        float inner_Radius = 35f;
+        int inner_Platforms = 10;
+        float outter_Radius = 60f;
+        int outter_Platforms = 20;
+
+
+        for (int i = 0; i < inner_Platforms; i++)
         {
-            for (int j = 0; j < 10; j++)
-            {
-                float Pos_X = Start_X + (i * 15);
-                float Pos_Z = Start_Z + (j * 15);
-                Vector3 SpawnPos = new Vector3(Pos_X, 190, Pos_Z);
-                Instantiate(parts, SpawnPos, Quaternion.identity);
-            }
+            float angle = i * (2 * Mathf.PI / inner_Platforms);
+            SpawnSinglePart(Center, angle, inner_Radius);
+        }
+        for (int i = 0; i < outter_Platforms; i++)
+        {
+            float angle = i * (2 * Mathf.PI / outter_Platforms);
+            SpawnSinglePart(Center, angle, outter_Radius);
         }
     }
+
+    void SpawnSinglePart(Vector3 Center, float angle, float radius)
+    {
+        float Pos_X = Center.x + Mathf.Cos(angle) * radius;
+        float Pos_Z = Center.z + Mathf.Sin(angle) * radius;
+        Vector3 SpawnPos = new Vector3(Pos_X, 190, Pos_Z);
+        Vector3 Direction_Center = Center - SpawnPos;
+        Direction_Center.y = 0;
+        Quaternion rotation = Quaternion.LookRotation(Direction_Center);
+        Instantiate(parts, SpawnPos, rotation);
+    }
+
 
     void MeteorLine()
     {
