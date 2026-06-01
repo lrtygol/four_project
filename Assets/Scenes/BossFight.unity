@@ -8033,12 +8033,16 @@ MonoBehaviour:
   Phase: 1
   HealSpawn: 0
   HealthSpawnCD: 3
+  PartsCenter: {fileID: 1456090778}
   parts: {fileID: 874148442006586216, guid: fd2bc7449aa2aa845949c93f46762365, type: 3}
+  BossPlate: {fileID: 2106583128}
   Distance_Meteor: 30
   Spacing: 2.5
   Meteors: 7
   attackLine: {fileID: 1585219406}
   MeteorCD: 0.1
+  TVOROgHide: {fileID: 1390827562}
+  GhostHide: {fileID: 1483187686}
   crips: {fileID: 7908815744003309209, guid: 9fc5960813f567c43b54f18967c5b5aa, type: 3}
   SpawnArea:
   - {fileID: 573956420}
@@ -8197,6 +8201,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1379479584}
   m_CullTransparentMesh: 1
+--- !u!1 &1390827562
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1390827563}
+  m_Layer: 0
+  m_Name: TVOROgHide
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1390827563
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390827562}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 171.15312, y: 182.87306, z: 31.336872}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 24
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1393088846
 GameObject:
   m_ObjectHideFlags: 0
@@ -8411,7 +8446,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1456090779}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: PlatsCenter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8425,12 +8460,43 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1456090778}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 220, y: 193.14, z: 23}
+  m_LocalPosition: {x: 220, y: 190, z: 23}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 22
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1483187686
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1483187687}
+  m_Layer: 0
+  m_Name: GhostHide
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1483187687
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1483187686}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 171.20209, y: 182.87306, z: 30.95192}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1514744650
 GameObject:
@@ -14778,7 +14844,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132147845786794}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 238.5, y: 190.6, z: 21.5}
+  m_LocalPosition: {x: 251.95, y: 190.6, z: 20.55}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

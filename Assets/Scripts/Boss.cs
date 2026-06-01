@@ -22,8 +22,11 @@ public class Boss : MonoBehaviour
     private float nextHealthSpawn;
     public float HealthSpawnCD = 5f;
 
+
+    public GameObject PartsCenter;
     public GameObject parts;
-    
+    public GameObject BossPlate;
+
 
     public float Distance_Meteor = 30f;
     public float Spacing = 2f;
@@ -33,6 +36,8 @@ public class Boss : MonoBehaviour
     public float MeteorCD = 1f;
     private float nextMeteorTime;
 
+    public GameObject TVOROgHide;
+    public GameObject GhostHide;
     public GameObject crips;
     public BoxCollider[] SpawnArea;
     public GameObject ProPrefabJectile;
@@ -61,9 +66,9 @@ public class Boss : MonoBehaviour
     {
         LookAtP();
 
-        if (Time.time >= nextAttackTime)
+        if (Time.time >= nextAttackTime && Phase != 5)
         {
-            MeteorLine();
+            
             attack();
             Debug.Log(currethp);
             nextAttackTime = Time.time + attackCD;
@@ -100,7 +105,7 @@ public class Boss : MonoBehaviour
                 A.max.y + 7f,
                 Random.Range(A.min.z, A.max.z)
                 );
-            GameObject spawning = Instantiate(TVOROG, RandomPos, Quaternion.Euler(0, 0, 0));
+            GameObject spawning = Instantiate(TVOROG, RandomPos, Quaternion.Euler(0, 0, 0), TVOROgHide.transform);
         }
     }
 
@@ -119,7 +124,7 @@ public class Boss : MonoBehaviour
                     B.min.y,
                     Random.Range(B.min.z, B.max.z)
                 );
-                GameObject spawning = Instantiate(crips, RandomPos, Quaternion.Euler(-90, 0, 0));
+                GameObject spawning = Instantiate(crips, RandomPos, Quaternion.Euler(-90, 0, 0), GhostHide.transform);
                 
             }
         }
@@ -166,7 +171,10 @@ public class Boss : MonoBehaviour
             Phase = 5;
             HealSpawn = true;
             SpawnParts();
-
+            MeteorLine();
+            transform.position = PartsCenter.transform.position;
+            Plocation.root.position = new Vector3(255, 191, 24);
+            BossPlate.SetActive(false);
 
         }
     }
@@ -255,7 +263,7 @@ public class Boss : MonoBehaviour
         Vector3 Direction_Center = Center - SpawnPos;
         Direction_Center.y = 0;
         Quaternion rotation = Quaternion.LookRotation(Direction_Center);
-        Instantiate(parts, SpawnPos, rotation);
+        Instantiate(parts, SpawnPos, rotation, PartsCenter.transform);
     }
 
 
@@ -271,5 +279,6 @@ public class Boss : MonoBehaviour
             ProPreJectile projectScript = Meteor.GetComponent<ProPreJectile>();
             projectScript.launch(SpawnPos + attackLine.up);
         }
+        Debug.Log("σσσ");
     }
 }
