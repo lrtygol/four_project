@@ -73,7 +73,6 @@ public class Boss : MonoBehaviour
             Debug.Log(currethp);
             nextAttackTime = Time.time + attackCD;
         }
-
         if (Phase == 3 &&  Time.time >= nextMeteorTime)
         {
             meteors();
@@ -85,6 +84,12 @@ public class Boss : MonoBehaviour
             nextMeteorTime = Time.time + MeteorCD/3;
             Debug.Log("3");
         }
+        if (Time.time >= nextAttackTime && Phase == 5)
+        {
+            MeteorLine();
+            nextAttackTime = Time.time + attackCD;
+
+        }
         if (Phase == 5 && Time.time >= nextMeteorTime)
         {
             meteors();
@@ -92,6 +97,7 @@ public class Boss : MonoBehaviour
             
             Debug.Log("5");
         }
+
 
         if (Time.time >= nextHealthSpawn && HealSpawn)
         {
@@ -142,7 +148,7 @@ public class Boss : MonoBehaviour
                     A.min.y,
                     Random.Range(A.min.z, A.max.z)
                     );
-                GameObject spawning = Instantiate(crips, RandomPos, Quaternion.Euler(-90, 0, 0));
+                GameObject spawning = Instantiate(crips, RandomPos, Quaternion.Euler(-90, 0, 0), GhostHide.transform);
 
             }
             
@@ -161,7 +167,7 @@ public class Boss : MonoBehaviour
                     A.min.y,
                     Random.Range(A.min.z, A.max.z)
                     );
-                GameObject spawning = Instantiate(crips, RandomPos, Quaternion.Euler(-90, 0, 0));
+                GameObject spawning = Instantiate(crips, RandomPos, Quaternion.Euler(-90, 0, 0), GhostHide.transform);
 
             }
 
@@ -171,7 +177,10 @@ public class Boss : MonoBehaviour
             Phase = 5;
             HealSpawn = true;
             SpawnParts();
-            MeteorLine();
+            Destroy(GhostHide);
+            Destroy(TVOROgHide);
+            GhostHide = new GameObject("GhostHide");
+            TVOROgHide = new GameObject("TVOROgHide");
             transform.position = PartsCenter.transform.position;
             Plocation.root.position = new Vector3(255, 191, 24);
             BossPlate.SetActive(false);
