@@ -11,9 +11,11 @@ public class Crips : MonoBehaviour
     private Transform player;
     private float Timing;
     private Rigidbody rb;
+    public static float Dist_e = 20f;
 
     void Start()
     {
+        Dist_e = 20f;
         rb = GetComponent<Rigidbody>();
         GameObject P = GameObject.FindGameObjectWithTag("Player");
         player = P.transform;
@@ -22,6 +24,7 @@ public class Crips : MonoBehaviour
     
     void Update()
     {
+        Debug.Log(Dist_e);
         Run Plyer = player.GetComponent<Run>();
         if (elevator)
         {
@@ -43,8 +46,9 @@ public class Crips : MonoBehaviour
 
             float distance = Vector3.Distance(transform.position, player.position);
             
-            if (distance <= 20 && speed > 0 && Time.time >= Timing + 3f)
+            if (Dist_e >= distance && speed > 0 && Time.time >= Timing + 3f)
             {
+                
                 // ... (логика движения)
                 Vector3 direction = (player.position - transform.position).normalized;
                 direction.y = 0;

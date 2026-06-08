@@ -8028,7 +8028,7 @@ MonoBehaviour:
   Plocation: {fileID: 476791735}
   TVOROG: {fileID: 7289129060011204362, guid: 0eb90bff131d3104698eb2431e38ef1d, type: 3}
   attackPoint: {fileID: 1723728466}
-  attackCD: 4
+  attackCD: 1
   Boss_slider: {fileID: 442500268}
   Phase: 1
   HealSpawn: 0

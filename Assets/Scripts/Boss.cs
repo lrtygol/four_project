@@ -45,9 +45,9 @@ public class Boss : MonoBehaviour
 
     void Start()
     {
-        currethp = Maxhp;
+        currethp = 199;
         nextAttackTime = Time.time + attackCD;
-        SpawnParts();
+        
 
 
     }
@@ -172,9 +172,10 @@ public class Boss : MonoBehaviour
             }
 
         }
-        if (currethp <= 200 && Phase == 4)
+        if (currethp <= 200 )
         {
             Phase = 5;
+            Crips.Dist_e = 1000f;
             HealSpawn = true;
             SpawnParts();
             Destroy(GhostHide);
@@ -184,7 +185,18 @@ public class Boss : MonoBehaviour
             transform.position = PartsCenter.transform.position;
             Plocation.root.position = new Vector3(255, 191, 24);
             BossPlate.SetActive(false);
+            for (int i = 0; i < 40; i++)
+            {
+                BoxCollider randomPart = SpawnArea[Random.Range(0, SpawnArea.Length)];
+                Bounds A = randomPart.bounds;
+                Vector3 RandomPos = new Vector3(
+                    Random.Range(A.min.x, A.max.x),
+                    A.min.y,
+                    Random.Range(A.min.z, A.max.z)
+                    );
+                GameObject spawning = Instantiate(crips, RandomPos, Quaternion.Euler(-90, 0, 0), GhostHide.transform);
 
+            }
         }
     }
     
