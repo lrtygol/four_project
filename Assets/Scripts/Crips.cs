@@ -15,7 +15,7 @@ public class Crips : MonoBehaviour
 
     void Start()
     {
-        Dist_e = 20f;
+        
         rb = GetComponent<Rigidbody>();
         GameObject P = GameObject.FindGameObjectWithTag("Player");
         player = P.transform;

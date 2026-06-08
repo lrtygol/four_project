@@ -47,7 +47,7 @@ public class Boss : MonoBehaviour
     {
         currethp = 199;
         nextAttackTime = Time.time + attackCD;
-        
+        Crips.Dist_e = 20f;
 
 
     }
@@ -176,6 +176,7 @@ public class Boss : MonoBehaviour
         {
             Phase = 5;
             Crips.Dist_e = 1000f;
+            Debug.Log(Crips.Dist_e);
             HealSpawn = true;
             SpawnParts();
             Destroy(GhostHide);
