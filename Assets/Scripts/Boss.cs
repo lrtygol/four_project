@@ -82,7 +82,7 @@ public class Boss : MonoBehaviour
         {
             meteors();
             nextMeteorTime = Time.time + MeteorCD/3;
-            Debug.Log("3");
+            
         }
         if (Time.time >= nextAttackTime && Phase == 5)
         {
@@ -95,24 +95,39 @@ public class Boss : MonoBehaviour
             meteors();
             nextMeteorTime = Time.time + MeteorCD / 4;
             
-            Debug.Log("5");
+            
         }
 
 
         if (Time.time >= nextHealthSpawn && HealSpawn)
         {
-
             nextHealthSpawn = Time.time + HealthSpawnCD;
+            Debug.Log("åñòü{Phase}");
 
-            BoxCollider randomPart = SpawnArea[Random.Range(0, SpawnArea.Length)];
-            Bounds A = randomPart.bounds;
-            Vector3 RandomPos = new Vector3(
-                Random.Range(A.min.x, A.max.x),
-                A.max.y + 7f,
-                Random.Range(A.min.z, A.max.z)
-                );
-            GameObject spawning = Instantiate(TVOROG, RandomPos, Quaternion.Euler(0, 0, 0), TVOROgHide.transform);
+            if (Phase == 5)
+            {
+                
+                int randomIndex = Random.Range(0, PartsCenter.transform.childCount);
+                Transform randomPart = PartsCenter.transform.GetChild(randomIndex);
+                Vector3 randomPos = randomPart.position;
+                randomPos.y += 1f;
+                GameObject spawning = Instantiate(TVOROG, randomPos, Quaternion.Euler(0, 0, 0), TVOROgHide.transform);
+            }
+            else 
+            {
+                BoxCollider randomPart = SpawnArea[Random.Range(0, SpawnArea.Length)];
+                Bounds A = randomPart.bounds;
+                Vector3 RandomPos = new Vector3(
+                    Random.Range(A.min.x, A.max.x),
+                    A.max.y + 7f,
+                    Random.Range(A.min.z, A.max.z)
+                    );
+                GameObject spawning = Instantiate(TVOROG, RandomPos, Quaternion.Euler(0, 0, 0), TVOROgHide.transform);
+            }
+
+
         }
+        
     }
 
     void ChangePhase()
@@ -176,8 +191,8 @@ public class Boss : MonoBehaviour
         {
             Phase = 5;
             Crips.Dist_e = 1000f;
-            Debug.Log(Crips.Dist_e);
             HealSpawn = true;
+
             SpawnParts();
             Destroy(GhostHide);
             Destroy(TVOROgHide);
@@ -262,7 +277,7 @@ public class Boss : MonoBehaviour
         float inner_Radius = 35f;
         int inner_Platforms = 10;
         float outter_Radius = 60f;
-        int outter_Platforms = 20;
+        int outter_Platforms = 18;
 
 
         for (int i = 0; i < inner_Platforms; i++)
@@ -301,6 +316,6 @@ public class Boss : MonoBehaviour
             ProPreJectile projectScript = Meteor.GetComponent<ProPreJectile>();
             projectScript.launch(SpawnPos + attackLine.up);
         }
-        Debug.Log("óóó");
+        
     }
 }

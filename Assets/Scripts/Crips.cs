@@ -24,7 +24,7 @@ public class Crips : MonoBehaviour
     
     void Update()
     {
-        Debug.Log(Dist_e);
+        
         Run Plyer = player.GetComponent<Run>();
         if (elevator)
         {
@@ -101,7 +101,7 @@ public class Crips : MonoBehaviour
         
         if (collision.gameObject.CompareTag("crip"))
         {
-            Debug.Log("да");
+            
             Vector3 pushDirection = transform.position - collision.transform.position;
             pushDirection.y = 0;
             rb.AddForce(pushDirection.normalized * 80f, ForceMode.Acceleration);
