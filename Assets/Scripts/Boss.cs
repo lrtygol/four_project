@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 using UnityEngine.SceneManagement;
 
 public class Boss : MonoBehaviour
@@ -22,6 +23,8 @@ public class Boss : MonoBehaviour
     private float nextHealthSpawn;
     public float HealthSpawnCD = 5f;
 
+    public VideoPlayer vdplyer;
+    public GameObject SceneUI;
 
     public GameObject PartsCenter;
     public GameObject parts;
@@ -48,7 +51,7 @@ public class Boss : MonoBehaviour
         currethp = 199;
         nextAttackTime = Time.time + attackCD;
         Crips.Dist_e = 20f;
-
+        SceneUI.SetActive(false);
 
     }
 
@@ -66,7 +69,7 @@ public class Boss : MonoBehaviour
     {
         LookAtP();
 
-        if (Time.time >= nextAttackTime && Phase != 5)
+        if (Time.time >= nextAttackTime && Phase != 5 && Phase != 0)
         {
             
             attack();
@@ -99,6 +102,7 @@ public class Boss : MonoBehaviour
         }
 
 
+
         if (Time.time >= nextHealthSpawn && HealSpawn)
         {
             nextHealthSpawn = Time.time + HealthSpawnCD;
@@ -108,10 +112,14 @@ public class Boss : MonoBehaviour
             {
                 
                 int randomIndex = Random.Range(0, PartsCenter.transform.childCount);
-                Transform randomPart = PartsCenter.transform.GetChild(randomIndex);
-                Vector3 randomPos = randomPart.position;
-                randomPos.y += 1f;
-                GameObject spawning = Instantiate(TVOROG, randomPos, Quaternion.Euler(0, 0, 0), TVOROgHide.transform);
+                Collider randomPart = PartsCenter.transform.GetChild(randomIndex).GetComponent<Collider>();
+                Bounds A = randomPart.bounds;
+                Vector3 RandomPos = new Vector3(
+                    Random.Range(A.min.x + 6f, A.max.x - 6f),
+                    A.max.y + 0.5f,
+                    Random.Range(A.min.z + 6f, A.max.z - 6f)
+                    );
+                GameObject spawning = Instantiate(TVOROG, RandomPos, Quaternion.Euler(0, 0, 0), TVOROgHide.transform);
             }
             else 
             {
@@ -189,30 +197,43 @@ public class Boss : MonoBehaviour
         }
         if (currethp <= 200 )
         {
-            Phase = 5;
+            Phase = 0;
             Crips.Dist_e = 1000f;
             HealSpawn = true;
-
-            SpawnParts();
+            Run PlayerScript = Plocation.gameObject.GetComponent<Run>();
             Destroy(GhostHide);
             Destroy(TVOROgHide);
-            GhostHide = new GameObject("GhostHide");
-            TVOROgHide = new GameObject("TVOROgHide");
-            transform.position = PartsCenter.transform.position;
-            Plocation.root.position = new Vector3(255, 191, 24);
-            BossPlate.SetActive(false);
-            for (int i = 0; i < 40; i++)
-            {
-                BoxCollider randomPart = SpawnArea[Random.Range(0, SpawnArea.Length)];
-                Bounds A = randomPart.bounds;
-                Vector3 RandomPos = new Vector3(
-                    Random.Range(A.min.x, A.max.x),
-                    A.min.y,
-                    Random.Range(A.min.z, A.max.z)
-                    );
-                GameObject spawning = Instantiate(crips, RandomPos, Quaternion.Euler(-90, 0, 0), GhostHide.transform);
 
-            }
+            SceneUI.SetActive(true);
+            vdplyer.Play();
+            PlayerScript.blocker = true;
+            SpawnParts();
+            Plocation.root.position = new Vector3(255, 191, 24);
+            transform.position = PartsCenter.transform.position;
+            vdplyer.loopPointReached += (vp) =>
+            {
+                PlayerScript.blocker = false;
+                vdplyer.Stop();
+                Phase = 5;
+                GhostHide = new GameObject("GhostHide");
+                TVOROgHide = new GameObject("TVOROgHide");
+                
+                BossPlate.SetActive(false);
+                for (int i = 0; i < 40; i++)
+                {
+                    BoxCollider randomPart = SpawnArea[Random.Range(0, SpawnArea.Length)];
+                    Bounds A = randomPart.bounds;
+                    Vector3 RandomPos = new Vector3(
+                        Random.Range(A.min.x, A.max.x),
+                        A.min.y,
+                        Random.Range(A.min.z, A.max.z)
+                        );
+                    GameObject spawning = Instantiate(crips, RandomPos, Quaternion.Euler(-90, 0, 0), GhostHide.transform);
+
+                }
+            };
+
+            
         }
     }
     
