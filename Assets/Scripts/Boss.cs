@@ -11,7 +11,9 @@ public class Boss : MonoBehaviour
     private int currethp;
     public Transform Plocation;
 
-    public GameObject Boss_shield;
+    private int sphereCount = 0;
+    private int SpheretoColl = 5;
+    public GameObject Sphere;
     public GameObject TVOROG;
 
     public Transform attackPoint;
@@ -68,7 +70,7 @@ public class Boss : MonoBehaviour
         }
         currethp -= damage;
         Boss_slider.value = currethp;
-        Debug.Log(currethp);
+        
 
         ChangePhase();
 
@@ -83,7 +85,7 @@ public class Boss : MonoBehaviour
         {
             
             attack();
-            Debug.Log(currethp);
+            
             nextAttackTime = Time.time + attackCD;
         }
         if (Phase == 3 &&  Time.time >= nextMeteorTime)
@@ -116,7 +118,7 @@ public class Boss : MonoBehaviour
         if (Time.time >= nextHealthSpawn && HealSpawn)
         {
             nextHealthSpawn = Time.time + HealthSpawnCD;
-            Debug.Log("есть{Phase}");
+            
 
             if (Phase == 5)
             {
@@ -128,7 +130,7 @@ public class Boss : MonoBehaviour
                     N.max.y + 1.5f,
                     Random.Range(N.min.z + 6f, N.max.z - 6f)
                     );
-                GameObject spawning = Instantiate(Boss_shield, RandomPos, Quaternion.Euler(0, 0, 0));
+                GameObject spawning = Instantiate(Sphere, RandomPos, Quaternion.Euler(0, 0, 0));
             }
                 if (Phase == 5)
             {
@@ -382,5 +384,19 @@ public class Boss : MonoBehaviour
             projectScript.launch(SpawnPos + attackLine.up);
         }
         
+    }
+    private void OnItemCollected() 
+    {
+        
+        sphereCount++;
+        Debug.Log($"—фер:{sphereCount}/{SpheretoColl}");
+    }
+    private void OnEnable()
+    {
+        sfera.Oncollected += OnItemCollected;
+    }
+    private void OnDisable()
+    {
+        sfera.Oncollected -= OnItemCollected;
     }
 }

@@ -6974,7 +6974,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Maxhp: 1000
   Plocation: {fileID: 476791735}
-  Boss_shield: {fileID: 5696648692165911148, guid: 624e6e63de003594ca53189af5d18dee, type: 3}
+  Sphere: {fileID: 5696648692165911148, guid: 624e6e63de003594ca53189af5d18dee, type: 3}
   TVOROG: {fileID: 7289129060011204362, guid: 0eb90bff131d3104698eb2431e38ef1d, type: 3}
   attackPoint: {fileID: 1723728466}
   attackCD: 1
