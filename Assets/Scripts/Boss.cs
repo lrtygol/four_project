@@ -11,6 +11,7 @@ public class Boss : MonoBehaviour
     private int currethp;
     public Transform Plocation;
 
+    public GameObject Boss_shield;
     public GameObject TVOROG;
 
     public Transform attackPoint;
@@ -36,7 +37,7 @@ public class Boss : MonoBehaviour
     public int Meteors = 7;
     public Transform attackLine;
 
-    public float MeteorCD = 1f;
+    public float MeteorCD = 4f;
     private float nextMeteorTime;
 
     public GameObject TVOROgHide;
@@ -48,7 +49,7 @@ public class Boss : MonoBehaviour
 
     void Start()
     {
-        currethp = 199;
+        currethp = 1000;
         nextAttackTime = Time.time + attackCD;
         Crips.Dist_e = 20f;
         SceneUI.SetActive(false);
@@ -57,12 +58,21 @@ public class Boss : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if (Phase == 5)
+        {
+            damage = 10;
+        }
+        else if (Phase == 6)
+        {
+            damage = 0;
+        }
         currethp -= damage;
         Boss_slider.value = currethp;
         Debug.Log(currethp);
 
         ChangePhase();
 
+        
     }
 
     void Update()
@@ -110,6 +120,18 @@ public class Boss : MonoBehaviour
 
             if (Phase == 5)
             {
+                int randomIndex = Random.Range(0, PartsCenter.transform.childCount);
+                Collider randomPart = PartsCenter.transform.GetChild(randomIndex).GetComponent<Collider>();
+                Bounds N = randomPart.bounds;
+                Vector3 RandomPos = new Vector3(
+                    Random.Range(N.min.x + 6f, N.max.x - 6f),
+                    N.max.y + 1.5f,
+                    Random.Range(N.min.z + 6f, N.max.z - 6f)
+                    );
+                GameObject spawning = Instantiate(Boss_shield, RandomPos, Quaternion.Euler(0, 0, 0));
+            }
+                if (Phase == 5)
+            {
                 
                 int randomIndex = Random.Range(0, PartsCenter.transform.childCount);
                 Collider randomPart = PartsCenter.transform.GetChild(randomIndex).GetComponent<Collider>();
@@ -120,8 +142,10 @@ public class Boss : MonoBehaviour
                     Random.Range(A.min.z + 6f, A.max.z - 6f)
                     );
                 GameObject spawning = Instantiate(TVOROG, RandomPos, Quaternion.Euler(0, 0, 0), TVOROgHide.transform);
+
+                
             }
-            else 
+            else if (Phase != 0)
             {
                 BoxCollider randomPart = SpawnArea[Random.Range(0, SpawnArea.Length)];
                 Bounds A = randomPart.bounds;
@@ -146,7 +170,7 @@ public class Boss : MonoBehaviour
             for (int i = 0; i < 10; i++)
             {
                 BoxCollider randomPart = SpawnArea[Random.Range(0, SpawnArea.Length)];
-                
+
                 Bounds B = randomPart.bounds;
                 Vector3 RandomPos = new Vector3(
                     Random.Range(B.min.x, B.max.x),
@@ -154,10 +178,10 @@ public class Boss : MonoBehaviour
                     Random.Range(B.min.z, B.max.z)
                 );
                 GameObject spawning = Instantiate(crips, RandomPos, Quaternion.Euler(-90, 0, 0), GhostHide.transform);
-                
+
             }
         }
-        if (currethp <= 600 && currethp >= 400 && Phase == 2)
+        else if (currethp <= 600 && currethp >= 400 && Phase == 2)
         {
             Phase = 3;
             HealSpawn = true;
@@ -174,9 +198,9 @@ public class Boss : MonoBehaviour
                 GameObject spawning = Instantiate(crips, RandomPos, Quaternion.Euler(-90, 0, 0), GhostHide.transform);
 
             }
-            
+
         }
-        if (currethp <= 400 && currethp >= 200 && Phase == 3)
+        else if (currethp <= 400 && currethp >= 200 && Phase == 3)
         {
             Phase = 4;
             HealSpawn = true;
@@ -195,12 +219,12 @@ public class Boss : MonoBehaviour
             }
 
         }
-        if (currethp <= 200 )
+        else if (currethp == 200)
         {
             Phase = 0;
             Crips.Dist_e = 1000f;
             HealSpawn = true;
-            Run PlayerScript = Plocation.gameObject.GetComponent<Run>();
+            Run PlayerScript = Plocation.parent.gameObject.GetComponent<Run>();
             Destroy(GhostHide);
             Destroy(TVOROgHide);
 
@@ -212,12 +236,15 @@ public class Boss : MonoBehaviour
             transform.position = PartsCenter.transform.position;
             vdplyer.loopPointReached += (vp) =>
             {
+
                 PlayerScript.blocker = false;
                 vdplyer.Stop();
+                nextAttackTime = Time.time + 5f;
+                nextMeteorTime = Time.time + 5f;
                 Phase = 5;
                 GhostHide = new GameObject("GhostHide");
                 TVOROgHide = new GameObject("TVOROgHide");
-                
+
                 BossPlate.SetActive(false);
                 for (int i = 0; i < 40; i++)
                 {
@@ -231,9 +258,26 @@ public class Boss : MonoBehaviour
                     GameObject spawning = Instantiate(crips, RandomPos, Quaternion.Euler(-90, 0, 0), GhostHide.transform);
 
                 }
+
             };
 
-            
+
+        }
+        else if (currethp == 100)
+        {
+            Phase = 6;
+            for (int i = 0; i < 40; i++)
+            {
+                BoxCollider randomPart = SpawnArea[Random.Range(0, SpawnArea.Length)];
+                Bounds A = randomPart.bounds;
+                Vector3 RandomPos = new Vector3(
+                    Random.Range(A.min.x, A.max.x),
+                    A.min.y,
+                    Random.Range(A.min.z, A.max.z)
+                    );
+                GameObject spawning = Instantiate(crips, RandomPos, Quaternion.Euler(-90, 0, 0), GhostHide.transform);
+
+            }
         }
     }
     
