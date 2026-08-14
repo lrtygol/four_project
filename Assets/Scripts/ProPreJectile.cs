@@ -11,11 +11,12 @@ public class ProPreJectile : MonoBehaviour
     public bool onehit = false;
     private Quaternion Rotation = Quaternion.Euler(-90f, 0, 0);
     private bool reflected = false;
-    
+    private AudioSource audioSource;
 
     private Vector3 Direction;
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         Destroy(gameObject, LifeTime);
     }
     public void launch(Vector3 PlayerPos)
@@ -35,28 +36,32 @@ public class ProPreJectile : MonoBehaviour
     {
         if (other.CompareTag("shield") && !reflected)
         {
+            
             Reflect(other);
             return;
         }
         Run Plyer = other.GetComponent<Run>();
         if (Plyer != null && !reflected)
         {
+            
             Explode(damage);
             return;
         }
         else if (other.CompareTag("Boss") && reflected)
         {
+            
             Boss BossScript = other.GetComponent<Boss>();
-            BossScript.TakeDamage(damage * 10);
+            BossScript.TakeDamage(damage * 20);
             Explode(damage);
         }
         else if (other.CompareTag("crip") && reflected)
         {
+            
             Destroy(other.gameObject);
         }
         else if (other.CompareTag("place"))
         {
-
+            
             Explode(damage);
             
         }
@@ -86,6 +91,7 @@ public class ProPreJectile : MonoBehaviour
     {
         if (onehit)
         {
+            
             return;
         }
         onehit = true;
@@ -119,6 +125,7 @@ public class ProPreJectile : MonoBehaviour
             }
         
         }
+        
         Destroy(gameObject);
     }
 }
