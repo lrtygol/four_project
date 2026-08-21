@@ -12,6 +12,7 @@ public class Crips : MonoBehaviour
     private float Timing;
     private Rigidbody rb;
     public static float Dist_e = 20f;
+    public AudioSource Rip;
 
     void Start()
     {
@@ -91,6 +92,7 @@ public class Crips : MonoBehaviour
             Run Plyer = player.GetComponent<Run>();
             if (Plyer.isAttacking)
             {
+                Rip.Play();
                 Destroy(gameObject);
             }
         }

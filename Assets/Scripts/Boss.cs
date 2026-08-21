@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.Video;
 using UnityEngine.SceneManagement;
 
+
 public class Boss : MonoBehaviour
 {
     public int Maxhp = 1000;
@@ -34,6 +35,8 @@ public class Boss : MonoBehaviour
     public GameObject BossPlate;
     public GameObject Suit;
 
+    
+    public AudioSource Boss_mp3;
 
     public float Distance_Meteor = 30f;
     public float Spacing = 2f;
@@ -52,6 +55,7 @@ public class Boss : MonoBehaviour
 
     void Start()
     {
+        
         currethp = 1000;
         nextAttackTime = Time.time + attackCD;
         Crips.Dist_e = 20f;
@@ -169,7 +173,7 @@ public class Boss : MonoBehaviour
             for (int i = 0; i < 10; i++)
             {
                 BoxCollider randomPart = SpawnArea[Random.Range(0, SpawnArea.Length)];
-
+                Boss_mp3.Play();
                 Bounds B = randomPart.bounds;
                 Vector3 RandomPos = new Vector3(
                     Random.Range(B.min.x, B.max.x),
@@ -184,7 +188,7 @@ public class Boss : MonoBehaviour
         {
             Phase = 3;
             HealSpawn = true;
-
+            Boss_mp3.Play();
             for (int i = 0; i < 20; i++)
             {
                 BoxCollider randomPart = SpawnArea[Random.Range(0, SpawnArea.Length)];
@@ -203,7 +207,7 @@ public class Boss : MonoBehaviour
         {
             Phase = 4;
             HealSpawn = true;
-
+            Boss_mp3.Play();
             for (int i = 0; i < 40; i++)
             {
                 BoxCollider randomPart = SpawnArea[Random.Range(0, SpawnArea.Length)];
@@ -220,6 +224,7 @@ public class Boss : MonoBehaviour
         }
         else if (currethp == 200)
         {
+            
             Phase = 0;
             Crips.Dist_e = 1000f;
             HealSpawn = true;
@@ -264,6 +269,7 @@ public class Boss : MonoBehaviour
         }
         else if (currethp == 100)
         {
+            Boss_mp3.Play();
             Suit.SetActive(true);
             Phase = 6;
 

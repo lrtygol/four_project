@@ -24,8 +24,15 @@ public class Run : MonoBehaviour
 
     public GameObject Sword;
     public bool isAttacking = false;
-    
-    
+
+    public AudioClip Walk;
+    public AudioClip Jump;
+    public AudioClip Sword_mp3;
+    public AudioClip Miss_Sword;
+    public AudioClip Shield_mp3;
+    public AudioClip Damage;
+    public AudioClip Ghost;
+    public AudioSource Player_mp3;
 
 
     public GameObject Shield;
@@ -120,7 +127,7 @@ public class Run : MonoBehaviour
         //Debug.Log(isAttacking);
         if (Input.GetKeyDown(KeyCode.Mouse0) && isAttacking == false && block == false)
         {
-            
+            Player_mp3.PlayOneShot(Miss_Sword);
             //Debug.Log("Удар");
             isAttacking = true;
             anim.SetTrigger("Attack");
@@ -146,6 +153,7 @@ public class Run : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Mouse1) && block == false && isAttacking == false)
         {
+            
             Shield.SetActive(true);
             //Debug.Log("Blocked");
             isAttacking = false;
@@ -162,23 +170,27 @@ public class Run : MonoBehaviour
             anim.SetTrigger("Jump");
             rb.AddForce(new Vector3(0, Fjump, 0), ForceMode.Impulse);
             jump = true;
+            Player_mp3.PlayOneShot(Jump);
         }
         if (moveDerection.magnitude > 0.1f)
         {
+            Player_mp3.PlayOneShot(Walk);
             if (Input.GetKey(KeyCode.LeftShift))
             {
                 anim.SetBool("Sprint", true);
                 anim.SetBool("Walk", false);
                 transform.position += moveDerection.normalized * Time.deltaTime * sprint;
-
+                
             }
             else
             {
+                
                 anim.SetBool("Sprint", false);
                 anim.SetBool("Walk", true);
                 transform.position += moveDerection.normalized * Time.deltaTime * speed;
+                
             }
-
+            
         }
         else
         {
@@ -203,13 +215,14 @@ public class Run : MonoBehaviour
             }
             if (Time.time > nextDmg) 
             {
+                
                 hp -= 20;
                 health.set_health(hp);
                 AudioSource.Play();
                 nextDmg = Time.time + damage_CD;
                 if (hp <= 0)
                 {
-
+                    
                     Randix();
                     Cursor.lockState = CursorLockMode.None;
                     Cursor.visible = true;
