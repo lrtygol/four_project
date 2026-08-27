@@ -35,7 +35,8 @@ public class Boss : MonoBehaviour
     public GameObject BossPlate;
     public GameObject Suit;
 
-    
+    private bool IsCutScene = false;
+
     public AudioSource Boss_mp3;
 
     public float Distance_Meteor = 30f;
@@ -82,10 +83,18 @@ public class Boss : MonoBehaviour
 
         
     }
-
+    
     void Update()
     {
         LookAtP();
+        if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.Space))
+        {
+            EndCutScene();
+            Debug.Log("QQQ");
+        }
+        
+
+
 
         if (Time.time >= nextAttackTime && Phase != 5 && Phase != 0 && Phase != 6)
         {
@@ -125,7 +134,11 @@ public class Boss : MonoBehaviour
 
 
         }
-
+        if (Phase == 6 && Time.time >= nextMeteorTime)
+        {
+            MeteorLine();
+            nextAttackTime = Time.time + attackCD;
+        }
 
         if (Time.time >= nextHealthSpawn && HealSpawn)
         {
@@ -163,6 +176,43 @@ public class Boss : MonoBehaviour
 
         }
         
+    }
+    void EndCutScene()
+    {
+        if (IsCutScene != true)
+        {
+            return;
+        }
+        Run PlayerScript = Plocation.parent.gameObject.GetComponent<Run>();
+        IsCutScene = false;
+        PlayerScript.blocker = false;
+        vdplyer.Stop();
+        nextAttackTime = Time.time + 5f;
+        nextMeteorTime = Time.time + 5f;
+        Phase = 5;
+        GhostHide = new GameObject("GhostHide");
+        TVOROgHide = new GameObject("TVOROgHide");
+        
+        BossPlate.SetActive(false);
+        for (int i = 0; i < 40; i++)
+        {
+            BoxCollider randomPart = SpawnArea[Random.Range(0, SpawnArea.Length)];
+            Bounds A = randomPart.bounds;
+            Vector3 RandomPos = new Vector3(
+                Random.Range(A.min.x, A.max.x),
+                A.min.y,
+                Random.Range(A.min.z, A.max.z)
+                );
+            GameObject spawning = Instantiate(crips, RandomPos, Quaternion.Euler(-90, 0, 0), GhostHide.transform);
+            
+        }
+
+        vdplyer.loopPointReached -= OnVideoEnd;
+    }
+
+    void OnVideoEnd(VideoPlayer vp)
+    {
+        EndCutScene();
     }
 
     void ChangePhase()
@@ -231,39 +281,16 @@ public class Boss : MonoBehaviour
             Run PlayerScript = Plocation.parent.gameObject.GetComponent<Run>();
             Destroy(GhostHide);
             Destroy(TVOROgHide);
-
+            IsCutScene = true;
             SceneUI.SetActive(true);
+            vdplyer.loopPointReached += OnVideoEnd;
+
             vdplyer.Play();
             PlayerScript.blocker = true;
             SpawnParts();
             Plocation.root.position = new Vector3(255, 191, 24);
             transform.position = PartsCenter.transform.position;
-            vdplyer.loopPointReached += (vp) =>
-            {
 
-                PlayerScript.blocker = false;
-                vdplyer.Stop();
-                nextAttackTime = Time.time + 5f;
-                nextMeteorTime = Time.time + 5f;
-                Phase = 5;
-                GhostHide = new GameObject("GhostHide");
-                TVOROgHide = new GameObject("TVOROgHide");
-
-                BossPlate.SetActive(false);
-                for (int i = 0; i < 40; i++)
-                {
-                    BoxCollider randomPart = SpawnArea[Random.Range(0, SpawnArea.Length)];
-                    Bounds A = randomPart.bounds;
-                    Vector3 RandomPos = new Vector3(
-                        Random.Range(A.min.x, A.max.x),
-                        A.min.y,
-                        Random.Range(A.min.z, A.max.z)
-                        );
-                    GameObject spawning = Instantiate(crips, RandomPos, Quaternion.Euler(-90, 0, 0), GhostHide.transform);
-
-                }
-
-            };
 
 
         }
