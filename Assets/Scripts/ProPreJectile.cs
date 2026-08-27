@@ -12,8 +12,10 @@ public class ProPreJectile : MonoBehaviour
     private Quaternion Rotation = Quaternion.Euler(-90f, 0, 0);
     private bool reflected = false;
     private AudioSource audioSource;
-
+    public AudioClip Explode_mp3;
+    public AudioClip Shield_mp3;
     private Vector3 Direction;
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -36,7 +38,7 @@ public class ProPreJectile : MonoBehaviour
     {
         if (other.CompareTag("shield") && !reflected)
         {
-            
+            AudioSource.PlayClipAtPoint(Shield_mp3, transform.position);
             Reflect(other);
             return;
         }
@@ -101,6 +103,7 @@ public class ProPreJectile : MonoBehaviour
 
 
         }
+        AudioSource.PlayClipAtPoint(Explode_mp3, transform.position);
 
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         Run Plyer = player.GetComponent<Run>();

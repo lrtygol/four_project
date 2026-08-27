@@ -25,14 +25,13 @@ public class Run : MonoBehaviour
     public GameObject Sword;
     public bool isAttacking = false;
 
-    public AudioClip Walk;
+    
     public AudioClip Jump;
-    public AudioClip Sword_mp3;
     public AudioClip Miss_Sword;
-    public AudioClip Shield_mp3;
     public AudioClip Damage;
     public AudioClip Ghost;
     public AudioSource Player_mp3;
+    public AudioSource Walk_mp3;
 
 
     public GameObject Shield;
@@ -174,17 +173,20 @@ public class Run : MonoBehaviour
         }
         if (moveDerection.magnitude > 0.1f)
         {
-            Player_mp3.PlayOneShot(Walk);
+            if (!Walk_mp3.isPlaying)
+            {
+                Walk_mp3.Play();
+            }
             if (Input.GetKey(KeyCode.LeftShift))
             {
                 anim.SetBool("Sprint", true);
                 anim.SetBool("Walk", false);
                 transform.position += moveDerection.normalized * Time.deltaTime * sprint;
-                
+                Walk_mp3.pitch = 1.3f;
             }
             else
             {
-                
+                Walk_mp3.pitch = 0.8f;
                 anim.SetBool("Sprint", false);
                 anim.SetBool("Walk", true);
                 transform.position += moveDerection.normalized * Time.deltaTime * speed;
@@ -194,6 +196,8 @@ public class Run : MonoBehaviour
         }
         else
         {
+            
+            Walk_mp3.Stop();
             anim.SetBool("Sprint", false);
             anim.SetBool("Walk",  false);
         }
@@ -215,14 +219,14 @@ public class Run : MonoBehaviour
             }
             if (Time.time > nextDmg) 
             {
-                
+                Player_mp3.PlayOneShot(Damage);
                 hp -= 20;
                 health.set_health(hp);
                 AudioSource.Play();
                 nextDmg = Time.time + damage_CD;
                 if (hp <= 0)
                 {
-                    
+
                     Randix();
                     Cursor.lockState = CursorLockMode.None;
                     Cursor.visible = true;

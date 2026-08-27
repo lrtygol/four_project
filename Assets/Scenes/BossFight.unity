@@ -13012,6 +13012,7 @@ GameObject:
   - component: {fileID: 919132147845786795}
   - component: {fileID: 919132147845786798}
   - component: {fileID: 919132147845786801}
+  - component: {fileID: 919132147845786802}
   m_Layer: 6
   m_Name: Petya
   m_TagString: Player
@@ -13120,14 +13121,12 @@ MonoBehaviour:
   vdplayer: {fileID: 0}
   Sword: {fileID: 2060089822}
   isAttacking: 0
-  Walk: {fileID: 8300000, guid: 73109a3dc4b0f7647ba70beb04a7e400, type: 3}
   Jump: {fileID: 8300000, guid: 97f94837054e64049bf579496117e07e, type: 3}
-  Sword_mp3: {fileID: 8300000, guid: dd4494ae491253c4eb0aed63f9572f01, type: 3}
   Miss_Sword: {fileID: 8300000, guid: 034ad2291d84f6a448ed6ce929b34124, type: 3}
-  Shield_mp3: {fileID: 8300000, guid: 00ad3beadd5238f4bb1d1c7ed556807c, type: 3}
   Damage: {fileID: 8300000, guid: 0fd1c2cadad098e479b51b8bac542c1e, type: 3}
   Ghost: {fileID: 8300000, guid: ff09568f5b8bb4e48affaff747c5fc4a, type: 3}
   Player_mp3: {fileID: 919132147845786801}
+  Walk_mp3: {fileID: 919132147845786802}
   Shield: {fileID: 993213127}
   blocker: 0
   block: 0
@@ -13230,6 +13229,102 @@ AudioSource:
     - serializedVersion: 3
       time: 0.0000076293945
       value: 1.004158
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!82 &919132147845786802
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132147845786794}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 34537cd150d9341498cd5ba25ffef1e2, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 0.8
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

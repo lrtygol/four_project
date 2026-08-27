@@ -118,6 +118,7 @@ MonoBehaviour:
   speed: 3
   damage: 5
   Rip: {fileID: 2695614658145712390}
+  NONE: {fileID: 8300000, guid: ff09568f5b8bb4e48affaff747c5fc4a, type: 3}
 --- !u!54 &-2054511289920389571
 Rigidbody:
   m_ObjectHideFlags: 0
