@@ -127,18 +127,8 @@ public class Boss : MonoBehaviour
             
             
         }
-        if (Phase == 5 && Time.time >= nextMeteorTime)
-        {
-            meteors();
-            nextMeteorTime = Time.time + MeteorCD / 4;
 
-
-        }
-        if (Phase == 6 && Time.time >= nextMeteorTime)
-        {
-            MeteorLine();
-            nextAttackTime = Time.time + attackCD;
-        }
+        
 
         if (Time.time >= nextHealthSpawn && HealSpawn)
         {
@@ -298,20 +288,11 @@ public class Boss : MonoBehaviour
         {
             Boss_mp3.Play();
             Suit.SetActive(true);
+            Debug.Log("6");
             Phase = 6;
 
-            for (int i = 0; i < 40; i++)
-            {
-                BoxCollider randomPart = SpawnArea[Random.Range(0, SpawnArea.Length)];
-                Bounds A = randomPart.bounds;
-                Vector3 RandomPos = new Vector3(
-                    Random.Range(A.min.x, A.max.x),
-                    A.min.y,
-                    Random.Range(A.min.z, A.max.z)
-                    );
-                GameObject spawning = Instantiate(crips, RandomPos, Quaternion.Euler(-90, 0, 0), GhostHide.transform);
+            SpawnParts();
 
-            }
             for (int i = 0; i < 5; i++)
             {
                 int randomIndex = Random.Range(0, PartsCenter.transform.childCount);
@@ -324,8 +305,18 @@ public class Boss : MonoBehaviour
                     );
                 GameObject spawning = Instantiate(Sphere, RandomPos, Quaternion.Euler(0, 0, 0));
             }
+            if (sphereCount == 5) 
+            {
+                
+                
+                SpawnParts();
+            }
         }
+        else if (currethp <= 0)
+        {
+            Destroy(gameObject);
 
+        }
     }
     
     //IEnumerator up (Transform CripPos, Vector3 TargetPos)
@@ -435,9 +426,9 @@ public class Boss : MonoBehaviour
         sphereCount++;
         if (sphereCount == SpheretoColl)
         {
-            Phase = 7;
+            Phase = 5;
             Suit.SetActive(false);
-            Debug.Log("7");
+            
         }
         Debug.Log($"Сфер:{sphereCount}/{SpheretoColl}");
     }

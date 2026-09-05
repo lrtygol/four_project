@@ -6191,15 +6191,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 16b46011ed5da7f45b80353b5c0865d1, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1671.6492
+      value: 1750
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 16b46011ed5da7f45b80353b5c0865d1, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1671.6492
+      value: 1750
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 16b46011ed5da7f45b80353b5c0865d1, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1671.6492
+      value: 1650
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 16b46011ed5da7f45b80353b5c0865d1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12542,7 +12542,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Plocation: {fileID: 476791735}
---- !u!64 &1829156304
+--- !u!4 &1829156307 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 16b46011ed5da7f45b80353b5c0865d1, type: 3}
+  m_PrefabInstance: {fileID: 865736110}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1829156310
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12556,11 +12561,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4711208715938537054, guid: 16b46011ed5da7f45b80353b5c0865d1, type: 3}
---- !u!4 &1829156307 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 16b46011ed5da7f45b80353b5c0865d1, type: 3}
-  m_PrefabInstance: {fileID: 865736110}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1950848529
 GameObject:
   m_ObjectHideFlags: 0
