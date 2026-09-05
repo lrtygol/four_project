@@ -136,18 +136,20 @@ public class Boss : MonoBehaviour
             
 
             
-                if (Phase == 5)
+            if (Phase == 5 || Phase == 6)
             {
                 
                 int randomIndex = Random.Range(0, PartsCenter.transform.childCount);
-                Collider randomPart = PartsCenter.transform.GetChild(randomIndex).GetComponent<Collider>();
-                Bounds A = randomPart.bounds;
+                Transform randomPart = PartsCenter.transform.GetChild(randomIndex);
+                float platform_length = 15f;
+                float platform_weight = 15f;
                 Vector3 RandomPos = new Vector3(
-                    Random.Range(A.min.x + 6f, A.max.x - 6f),
-                    A.max.y + 0.5f,
-                    Random.Range(A.min.z + 6f, A.max.z - 6f)
-                    );
-                GameObject spawning = Instantiate(TVOROG, RandomPos, Quaternion.Euler(0, 0, 0), TVOROgHide.transform);
+                    Random.Range(-0.4f, 0.4f),
+                    1,
+                    Random.Range(-0.4f, 0.4f)
+                );
+                Vector3 WorldPos = randomPart.TransformPoint(RandomPos);
+                GameObject spawning = Instantiate(TVOROG, WorldPos, Quaternion.Euler(0, 0, 0), TVOROgHide.transform);
 
                 
             }
@@ -159,7 +161,7 @@ public class Boss : MonoBehaviour
                     Random.Range(A.min.x, A.max.x),
                     A.max.y + 7f,
                     Random.Range(A.min.z, A.max.z)
-                    );
+                );
                 GameObject spawning = Instantiate(TVOROG, RandomPos, Quaternion.Euler(0, 0, 0), TVOROgHide.transform);
             }
 
@@ -291,7 +293,7 @@ public class Boss : MonoBehaviour
             Debug.Log("6");
             Phase = 6;
 
-            SpawnParts();
+            
 
             for (int i = 0; i < 5; i++)
             {
@@ -307,15 +309,16 @@ public class Boss : MonoBehaviour
             }
             if (sphereCount == 5) 
             {
-                
-                
-                SpawnParts();
+
+
+                HealSpawn = true;
             }
         }
         else if (currethp <= 0)
         {
             Destroy(gameObject);
-
+            Destroy(GhostHide);
+            Destroy(TVOROgHide);
         }
     }
     
