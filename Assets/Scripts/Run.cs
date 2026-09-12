@@ -20,13 +20,16 @@ public class Run : MonoBehaviour
     public int sprint = 10;
 
     public GameObject DieScreen;
-
+    public GameObject bar;
+    public GameObject Boss_bar;
     public VideoPlayer vdplayer;
+
 
     public GameObject Sword;
     public bool isAttacking = false;
 
     
+
     public AudioClip Jump;
     public AudioClip Miss_Sword;
     public AudioClip Damage;
@@ -94,7 +97,14 @@ public class Run : MonoBehaviour
             }
         }
     }
-
+    public void OnButtonClick()
+    {
+        Debug.Log("Кнопка нажата!");
+        Randix();
+        transform.position = new Vector3(149, 151, -41);
+        hp = 100;
+        health.set_health(hp);
+    }
     void Update()
     {
         if (blocker) {return;}
@@ -232,14 +242,13 @@ public class Run : MonoBehaviour
                 nextDmg = Time.time + damage_CD;
                 if (hp <= 0)
                 {
-                    
-                    Randix();
+                    bar.SetActive(false);
+                    Boss_bar.SetActive(false);
+                    DieScreen.SetActive(true);
                     Cursor.lockState = CursorLockMode.None;
                     Cursor.visible = true;
-                    DieScreen.SetActive(true);
-                    transform.position = new Vector3(149, 151, -41);
-                    hp = 100;
-                    health.set_health(hp);
+                    OnButtonClick();
+
                 }
             }
             
@@ -273,14 +282,16 @@ public class Run : MonoBehaviour
             
             if (hp <= 0) 
             {
-                
-                Randix();
+                bar.SetActive(false);
+                Boss_bar.SetActive(false);
+                DieScreen.SetActive(true);
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
-                DieScreen.SetActive(true);
-                transform.position = new Vector3(149, 151, -41);
-                hp = 100;
-                health.set_health(hp);
+                OnButtonClick();
+                //Randix();
+                //transform.position = new Vector3(149, 151, -41);
+                //hp = 100;
+                //health.set_health(hp);
             }
             
         }

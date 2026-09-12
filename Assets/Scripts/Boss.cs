@@ -65,7 +65,8 @@ public class Boss : MonoBehaviour
         nextAttackTime = Time.time + attackCD;
         Crips.Dist_e = 20f;
         SceneUI.SetActive(false);
-
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     public void TakeDamage(int damage)
@@ -180,7 +181,7 @@ public class Boss : MonoBehaviour
             return;
         }
         Run PlayerScript = Plocation.parent.gameObject.GetComponent<Run>();
-        Run = GetComponent<Cursor>();
+        
         IsCutScene = false;
         PlayerScript.blocker = false;
         vdplyer.Stop();
@@ -328,8 +329,8 @@ public class Boss : MonoBehaviour
             WinScreen.SetActive(true);
             bar.SetActive(false);
             Boss_bar.SetActive(false);
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
     
