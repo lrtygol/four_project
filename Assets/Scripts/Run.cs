@@ -20,6 +20,7 @@ public class Run : MonoBehaviour
     public int sprint = 10;
 
     public GameObject DieScreen;
+
     public VideoPlayer vdplayer;
 
     public GameObject Sword;
@@ -166,10 +167,15 @@ public class Run : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Space)&& jump == false)
         {
+            
             anim.SetTrigger("Jump");
             rb.AddForce(new Vector3(0, Fjump, 0), ForceMode.Impulse);
             jump = true;
             Player_mp3.PlayOneShot(Jump);
+        }
+        if (jump == true)
+        {
+            Walk_mp3.Stop();
         }
         if (moveDerection.magnitude > 0.1f)
         {
@@ -226,7 +232,7 @@ public class Run : MonoBehaviour
                 nextDmg = Time.time + damage_CD;
                 if (hp <= 0)
                 {
-
+                    
                     Randix();
                     Cursor.lockState = CursorLockMode.None;
                     Cursor.visible = true;

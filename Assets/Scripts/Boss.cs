@@ -29,6 +29,10 @@ public class Boss : MonoBehaviour
 
     public VideoPlayer vdplyer;
     public GameObject SceneUI;
+    public GameObject WinScreen;
+    public GameObject bar;
+    public GameObject Boss_bar;
+
 
     public GameObject PartsCenter;
     public GameObject parts;
@@ -176,6 +180,7 @@ public class Boss : MonoBehaviour
             return;
         }
         Run PlayerScript = Plocation.parent.gameObject.GetComponent<Run>();
+        Run = GetComponent<Cursor>();
         IsCutScene = false;
         PlayerScript.blocker = false;
         vdplyer.Stop();
@@ -316,9 +321,15 @@ public class Boss : MonoBehaviour
         }
         else if (currethp <= 0)
         {
+            
             Destroy(gameObject);
             Destroy(GhostHide);
             Destroy(TVOROgHide);
+            WinScreen.SetActive(true);
+            bar.SetActive(false);
+            Boss_bar.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
     }
     
