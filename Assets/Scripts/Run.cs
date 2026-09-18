@@ -19,10 +19,9 @@ public class Run : MonoBehaviour
     public int speed = 4;
     public int sprint = 10;
 
-    public GameObject DieScreen;
-    public GameObject bar;
-    public GameObject Boss_bar;
+
     public VideoPlayer vdplayer;
+    
 
 
     public GameObject Sword;
@@ -240,16 +239,7 @@ public class Run : MonoBehaviour
                 health.set_health(hp);
                 AudioSource.Play();
                 nextDmg = Time.time + damage_CD;
-                if (hp <= 0)
-                {
-                    bar.SetActive(false);
-                    Boss_bar.SetActive(false);
-                    DieScreen.SetActive(true);
-                    Cursor.lockState = CursorLockMode.None;
-                    Cursor.visible = true;
-                    OnButtonClick();
 
-                }
             }
             
             
@@ -280,19 +270,15 @@ public class Run : MonoBehaviour
             hp -= 100;
             health.set_health(hp);
             
-            if (hp <= 0) 
-            {
-                bar.SetActive(false);
-                Boss_bar.SetActive(false);
-                DieScreen.SetActive(true);
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-                OnButtonClick();
-                //Randix();
-                //transform.position = new Vector3(149, 151, -41);
-                //hp = 100;
-                //health.set_health(hp);
-            }
+            //if (hp <= 0) 
+            //{
+
+
+            //    Randix();
+            //    transform.position = new Vector3(149, 151, -41);
+            //    hp = 100;
+            //    health.set_health(hp);
+            //}
             
         }
 

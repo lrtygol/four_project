@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class health : MonoBehaviour
 {
+    public GameObject DieScreen;
+    public GameObject bar;
+    public GameObject Boss_bar;
     public Slider slider;
     public void set_health(int health)
     {
@@ -14,22 +17,40 @@ public class health : MonoBehaviour
         if (health <= 0)
         {
             Cursor.lockState = CursorLockMode.None;
-            //DieScreen.SetActive(true);
+            Cursor.visible = true;
+            DieScreen.SetActive(true);
+            bar.SetActive(false);
+            Boss_bar.SetActive(false);
             Time.timeScale = 0;
-            StartCoroutine(ReloadSceneWithDelay());
+            
         }
     }
-    IEnumerator ReloadSceneWithDelay()
+
+    public void Restart()
     {
-
-        yield return new WaitForSecondsRealtime(2f);
-
-
         Time.timeScale = 1f;
-
-
         SceneManager.LoadScene("BossFight");
-
     }
 
+
+
+
+
+
+
+
+
+
+    //IEnumerator ReloadSceneWithDelay()
+    //{
+
+    //    yield return new WaitForSecondsRealtime(2f);
+
+
+    //    Time.timeScale = 1f;
+
+
+    //    SceneManager.LoadScene("BossFight");
+
+    //}
 }
