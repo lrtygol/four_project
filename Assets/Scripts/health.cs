@@ -7,9 +7,12 @@ using UnityEngine.SceneManagement;
 public class health : MonoBehaviour
 {
     public GameObject DieScreen;
-    public GameObject bar;
-    public GameObject Boss_bar;
+    public GameObject StartScreen;
     public Slider slider;
+    void Start()
+    {
+        StartScreen.SetActive(true);
+    }
     public void set_health(int health)
     {
         Debug.Log(health);
@@ -19,17 +22,21 @@ public class health : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             DieScreen.SetActive(true);
-            bar.SetActive(false);
-            Boss_bar.SetActive(false);
             Time.timeScale = 0;
             
         }
     }
 
+    public void StartGame()
+    {
+        StartScreen.SetActive(false);
+        Debug.Log("да");
+        Cursor.lockState = CursorLockMode.Locked;
+    }
     public void Restart()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("BossFight");
+        SceneManager.LoadScene("Game");
     }
 
 

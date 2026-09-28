@@ -68,10 +68,11 @@ public class Run : MonoBehaviour
     void Start()
     {
         //Randix();
+
         Debug.Log(health);
         rb = GetComponent<Rigidbody>();
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
         AudioSource = GetComponent<AudioSource>();
     }
     public void Randix()
@@ -147,7 +148,11 @@ public class Run : MonoBehaviour
 
         if (Time.time >= blockEndTime)
         {
-            Shield.SetActive(false);
+            if (Shield != null)
+            {
+                Shield.SetActive(false);
+            }
+            
             block = false;
             speed = 4;
             sprint = 10;
@@ -162,8 +167,12 @@ public class Run : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Mouse1) && block == false && isAttacking == false)
         {
+
+            if (Shield != null)
+            {
+                Shield.SetActive(true);
+            }
             
-            Shield.SetActive(true);
             //Debug.Log("Blocked");
             isAttacking = false;
             block = true;
@@ -341,16 +350,23 @@ public class Run : MonoBehaviour
     public void Enable_Attack()
     {
         
+        if (Sword != null)
+        {
+            Sword.SetActive(true);
+        }
         
-        Sword.SetActive(true);
         
 
     }
 
     public void Disable_Attack()
     {
-        Sword.SetActive(false);
-        isAttacking = false;
+        if (Sword != null)
+        {
+            Sword.SetActive(false);
+            isAttacking = false;
+        }
+        
         //Debug.Log(isAttacking);
     }
 }
