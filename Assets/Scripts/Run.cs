@@ -3,125 +3,89 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
 
-[System.Serializable]
-public class platCouple
-{
-    public GameObject plat_a;
-    public GameObject plat_b;
-}
-
 public class Run : MonoBehaviour
 {
-    public platCouple[ ] Rgroup = new platCouple[4];
-    public float Fjump = 200f;
-    public float F = 500f;
-    public float S = 1000f;
-    public int speed = 4;
-    public int sprint = 10;
+    public float speed = 4f;
+    public float sprint = 10f;
+    public float jumpForce = 200f;
+    public Transform cameraPivot;
 
-
-    public VideoPlayer vdplayer;
-    
-
-
-    public GameObject Sword;
-    public bool isAttacking = false;
-
-    
-
-    public AudioClip Jump;
-    public AudioClip Miss_Sword;
-    public AudioClip Damage;
-    public AudioClip Ghost;
-    public AudioSource Player_mp3;
-    public AudioSource Walk_mp3;
-
-
-    public GameObject Shield;
-    public bool blocker = false;
-    public bool block = false;
-    public float blockDuration = 1f;
-    private float blockEndTime = 0f;
+    [Range(0.1f, 9f)][SerializeField] private float sensitivity = 0.5f;
+    [Range(0f, 90f)][SerializeField] private float yLimited = 80f;
 
     public health health;
+    public int maxHp = 100;
     public int hp = 100;
-    public float damage_CD = 0.5f;
-    public float nextDmg;
-    private AudioSource AudioSource;
+    public float damageCD = 0.5f;
+    private float nextDmgTime;
 
-    public bool jump = false;
+    public AudioSource playerAudioSource;
+    public AudioSource walkAudioSource;
+    public AudioClip jumpClip;
+    public AudioClip damageClip;
 
-    public float horizontal;
-    public float vertical;
-    private float VerticalRotation = 0f;
+    public VideoPlayer videoPlayer;
 
     public Animator anim;
 
-    public Transform cameraPivot;
+    public bool blocker = false;
+    public bool isAttacking = false;
+    public bool isBlocking = false;
 
-    [Range(0.1f, 9f)][SerializeField] float sensitivity = 0.5f;
-    [Range(0f, 90f)][SerializeField] float yLimited;
+    private Rigidbody rb;
+    private float verticalRotation = 0f;
+    private bool isGrounded = false;
+    private float currentSpeed;
+    private float currentSprint;
 
-    Rigidbody rb;
-
-    
-    void Start()
+    private void Start()
     {
-        //Randix();
-
-        Debug.Log(health);
         rb = GetComponent<Rigidbody>();
-        //Cursor.lockState = CursorLockMode.Locked;
-        //Cursor.visible = false;
-        AudioSource = GetComponent<AudioSource>();
-    }
-    public void Randix()
-    {
+        ResetSpeed();
 
-        foreach (var pair in Rgroup)
+        hp = maxHp;
+        if (health != null)
         {
-            int Randomize = Random.Range(0, 2);
-            if (Randomize == 0)
-            {
-                Collider cl = pair.plat_a.GetComponent<Collider>();
-                cl.enabled = false;
-                Collider cl2 = pair.plat_b.GetComponent<Collider>();
-                cl2.enabled = true;
-            }
-            else
-            {
-                Collider cl2 = pair.plat_b.GetComponent<Collider>();
-                cl2.enabled = false;
-                Collider cl = pair.plat_a.GetComponent<Collider>();
-                cl.enabled = true;
-            }
+            health.set_health(hp);
         }
     }
-    public void OnButtonClick()
+
+    private void Update()
     {
-        Debug.Log(" нопка нажата!");
-        Randix();
-        transform.position = new Vector3(149, 151, -41);
-        hp = 100;
-        health.set_health(hp);
+        if (blocker)
+        {
+            return;
+        }
+
+        HandleCameraRotation();
+        HandleMovement();
+        HandleJump();
     }
-    void Update()
+
+    private void HandleCameraRotation()
     {
-        if (blocker) {return;}
-            
-            
-        
+        float mouseX = Input.GetAxis("Mouse X") * sensitivity;
+        float mouseY = Input.GetAxis("Mouse Y") * sensitivity;
 
-        float MouseX = Input.GetAxis("Mouse X") * sensitivity;
-        float MouseY = Input.GetAxis("Mouse Y") * sensitivity;
-        horizontal = Input.GetAxis("Horizontal");
-        vertical = Input.GetAxis("Vertical");
+        transform.Rotate(0, mouseX, 0);
+        verticalRotation -= mouseY;
+        verticalRotation = Mathf.Clamp(verticalRotation, -yLimited, yLimited);
 
-        transform.Rotate(0, MouseX, 0);
-        VerticalRotation -= MouseY;
-        VerticalRotation = Mathf.Clamp(VerticalRotation, -yLimited, yLimited);
+        if (cameraPivot != null)
+        {
+            cameraPivot.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
+        }
+    }
 
-        cameraPivot.localRotation = Quaternion.Euler(VerticalRotation, 0, 0);
+    private void HandleMovement()
+    {
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+
+        if (Camera.main == null)
+        {
+            return;
+        }
 
         Vector3 cameraForward = Camera.main.transform.forward;
         Vector3 cameraRight = Camera.main.transform.right;
@@ -131,242 +95,233 @@ public class Run : MonoBehaviour
         cameraForward.Normalize();
         cameraRight.Normalize();
 
-        Vector3 moveDerection = (cameraForward * vertical) + (cameraRight * horizontal);
-        moveDerection.y = 0;
-        moveDerection.Normalize();
-        //Debug.Log(isAttacking);
-        if (Input.GetKeyDown(KeyCode.Mouse0) && isAttacking == false && block == false)
-        {
-            Player_mp3.PlayOneShot(Miss_Sword);
-            //Debug.Log("”дар");
-            isAttacking = true;
-            anim.SetTrigger("Attack");
-            
-        }
+        Vector3 moveDirection = (cameraForward * vertical) + (cameraRight * horizontal);
+        moveDirection.y = 0;
+        moveDirection.Normalize();
 
-        
-
-        if (Time.time >= blockEndTime)
+        if (moveDirection.magnitude > 0.1f)
         {
-            if (Shield != null)
+            if (walkAudioSource != null)
             {
-                Shield.SetActive(false);
+                if (!walkAudioSource.isPlaying && isGrounded)
+                {
+                    walkAudioSource.Play();
+                }
             }
-            
-            block = false;
-            speed = 4;
-            sprint = 10;
-        }
-        else
-        {
-            block = true;
-            speed = 2;
-            sprint = 0;
-        }
 
-
-        if (Input.GetKeyDown(KeyCode.Mouse1) && block == false && isAttacking == false)
-        {
-
-            if (Shield != null)
+            if (Input.GetKey(KeyCode.LeftShift) && !isBlocking)
             {
-                Shield.SetActive(true);
-            }
-            
-            //Debug.Log("Blocked");
-            isAttacking = false;
-            block = true;
-            anim.SetTrigger("Def");
-            blockEndTime = Time.time + blockDuration;
-            
+                if (anim != null)
+                {
+                    anim.SetBool("Sprint", true);
+                    anim.SetBool("Walk", false);
+                }
+                transform.position += moveDirection * (Time.deltaTime * currentSprint);
 
-        }
-
-
-        if (Input.GetKey(KeyCode.Space)&& jump == false)
-        {
-            
-            anim.SetTrigger("Jump");
-            rb.AddForce(new Vector3(0, Fjump, 0), ForceMode.Impulse);
-            jump = true;
-            Player_mp3.PlayOneShot(Jump);
-        }
-        if (jump == true)
-        {
-            Walk_mp3.Stop();
-        }
-        if (moveDerection.magnitude > 0.1f)
-        {
-            if (!Walk_mp3.isPlaying)
-            {
-                Walk_mp3.Play();
-            }
-            if (Input.GetKey(KeyCode.LeftShift))
-            {
-                anim.SetBool("Sprint", true);
-                anim.SetBool("Walk", false);
-                transform.position += moveDerection.normalized * Time.deltaTime * sprint;
-                Walk_mp3.pitch = 1.3f;
+                if (walkAudioSource != null)
+                {
+                    walkAudioSource.pitch = 1.3f;
+                }
             }
             else
             {
-                Walk_mp3.pitch = 0.8f;
-                anim.SetBool("Sprint", false);
-                anim.SetBool("Walk", true);
-                transform.position += moveDerection.normalized * Time.deltaTime * speed;
-                
+                if (anim != null)
+                {
+                    anim.SetBool("Sprint", false);
+                    anim.SetBool("Walk", true);
+                }
+                transform.position += moveDirection * (Time.deltaTime * currentSpeed);
+
+                if (walkAudioSource != null)
+                {
+                    walkAudioSource.pitch = 0.8f;
+                }
             }
-            
         }
         else
         {
-            
-            Walk_mp3.Stop();
-            anim.SetBool("Sprint", false);
-            anim.SetBool("Walk",  false);
+            if (walkAudioSource != null)
+            {
+                walkAudioSource.Stop();
+            }
+
+            if (anim != null)
+            {
+                anim.SetBool("Sprint", false);
+                anim.SetBool("Walk", false);
+            }
         }
-        
-        
-        
-        
-       
+
     }
+
+
+    private void HandleJump()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
+            if (anim != null)
+            {
+                anim.SetTrigger("Jump");
+            }
+
+            if (rb != null)
+            {
+                rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            }
+
+            isGrounded = false;
+
+            if (walkAudioSource != null)
+            {
+                walkAudioSource.Stop();
+            }
+
+            if (playerAudioSource != null && jumpClip != null)
+            {
+                playerAudioSource.PlayOneShot(jumpClip);
+            }
+        }
+    }
+
+    public void SetBlockSpeed(bool blocking)
+    {
+        isBlocking = blocking;
+
+        if (blocking)
+        {
+            currentSpeed = 2f;
+            currentSprint = 0f;
+        }
+        else
+        {
+            currentSpeed = speed;
+            currentSprint = sprint;
+        }
+    }
+
+    public void ResetSpeed()
+    {
+        currentSpeed = speed;
+        currentSprint = sprint;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        hp -= damage;
+        if (hp < 0)
+        {
+            hp = 0;
+        }
+
+        if (playerAudioSource != null && damageClip != null)
+        {
+            playerAudioSource.PlayOneShot(damageClip);
+        }
+
+        if (health != null)
+        {
+            health.set_health(hp);
+        }
+    }
+
+    public void Heal(int amount)
+    {
+        if (hp >= maxHp)
+        {
+            return;
+        }
+
+        hp += amount;
+        if (hp > maxHp)
+        {
+            hp = maxHp;
+        }
+
+        if (health != null)
+        {
+            health.set_health(hp);
+        }
+    }
+
+    public void Respawn(Vector3 spawnPosition)
+    {
+        transform.position = spawnPosition;
+        hp = maxHp;
+
+        if (health != null)
+        {
+            health.set_health(hp);
+        }
+    }
+
     private void OnTriggerStay(Collider other)
     {
-
-        if (other.gameObject.CompareTag("crit_damage"))
+        if (other.CompareTag("crit_damage"))
         {
-            Ghost transparency = other.gameObject.GetComponent<Ghost>();
+            Ghost transparency = other.GetComponent<Ghost>();
             if (transparency != null)
             {
                 transparency.StartTransp();
             }
-            if (Time.time > nextDmg) 
-            {
-                Player_mp3.PlayOneShot(Damage);
-                hp -= 20;
-                health.set_health(hp);
-                AudioSource.Play();
-                nextDmg = Time.time + damage_CD;
 
+            if (Time.time > nextDmgTime)
+            {
+                TakeDamage(20);
+                nextDmgTime = Time.time + damageCD;
             }
-            
-            
         }
+    }
 
-
-
-        if (other.gameObject.CompareTag("Heal"))
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Heal"))
         {
-            if (hp < 100)
+            if (hp < maxHp)
             {
-                hp += 20;
-                if (hp > 100)
-                {
-                    hp = 100;
-                }
-                health.set_health(hp);
+                Heal(20);
                 Destroy(other.gameObject);
             }
         }
-
-
     }
+
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("kill"))
-        {
-            hp -= 100;
-            health.set_health(hp);
-            
-            //if (hp <= 0) 
-            //{
-
-
-            //    Randix();
-            //    transform.position = new Vector3(149, 151, -41);
-            //    hp = 100;
-            //    health.set_health(hp);
-            //}
-            
-        }
-
-
-        //if (collision.gameObject.CompareTag("Boss"))
-        //{
-        //    transform.position = new Vector3(149, 151, -41);
-        //}
         if (collision.gameObject.CompareTag("place") || collision.gameObject.CompareTag("moving"))
         {
-
-            jump = false;
-            
+            isGrounded = true;
         }
-
-        if (collision.gameObject.CompareTag("tp_boss"))
-        {
-            vdplayer.Play();
-            blocker = true;
-            vdplayer.loopPointReached += (vp) =>
-            {
-                transform.position = new Vector3(381, -1090, 22);
-                blocker = false;
-                vdplayer.Stop();
-            };
-            
-
-        }
-
-        //if ((collision.gameObject.CompareTag("hammer")))
-        //{
-        //    Debug.Log("да");
-        //    rb.AddForce(new Vector3(0, 0, S), ForceMode.Impulse);
-        //}
-
-
-        //if ((collision.gameObject.CompareTag("spring")))
-        //{
-            
-        //    rb.AddForce(new Vector3(0, F, 0), ForceMode.Impulse);
-        //    jump = true;
-        //}
 
         if (collision.gameObject.CompareTag("moving"))
         {
-
             transform.parent = collision.transform;
         }
-    } 
+
+        if (collision.gameObject.CompareTag("kill"))
+        {
+            TakeDamage(100);
+        }
+
+        if (collision.gameObject.CompareTag("tp_boss") && videoPlayer != null)
+        {
+            videoPlayer.Play();
+            blocker = true;
+            videoPlayer.loopPointReached += OnVideoEnd;
+        }
+    }
+
     private void OnCollisionExit(Collision collision)
     {
-        
         if (collision.gameObject.CompareTag("moving"))
         {
             transform.parent = null;
         }
-
     }
 
-    public void Enable_Attack()
+    private void OnVideoEnd(VideoPlayer vp)
     {
-        
-        if (Sword != null)
-        {
-            Sword.SetActive(true);
-        }
-        
-        
-
-    }
-
-    public void Disable_Attack()
-    {
-        if (Sword != null)
-        {
-            Sword.SetActive(false);
-            isAttacking = false;
-        }
-        
-        //Debug.Log(isAttacking);
+        transform.position = new Vector3(381f, -1090f, 22f);
+        blocker = false;
+        vp.Stop();
+        vp.loopPointReached -= OnVideoEnd;
     }
 }
