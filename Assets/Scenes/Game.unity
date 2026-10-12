@@ -3679,7 +3679,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 16b46011ed5da7f45b80353b5c0865d1, type: 3}
       propertyPath: m_RootOrder
-      value: 49
+      value: 48
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 16b46011ed5da7f45b80353b5c0865d1, type: 3}
       propertyPath: m_LocalScale.x
@@ -4525,7 +4525,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 43
+  m_RootOrder: 42
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &380480077
 GameObject:
@@ -4935,7 +4935,7 @@ Transform:
   - {fileID: 1970402491}
   - {fileID: 1320291741}
   m_Father: {fileID: 0}
-  m_RootOrder: 44
+  m_RootOrder: 43
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &418647290
 PrefabInstance:
@@ -6947,6 +6947,7 @@ GameObject:
   - component: {fileID: 681438425}
   - component: {fileID: 681438427}
   - component: {fileID: 681438426}
+  - component: {fileID: 681438428}
   m_Layer: 5
   m_Name: DieScreen
   m_TagString: Untagged
@@ -6988,7 +6989,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
+  m_Color: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7013,6 +7014,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 681438424}
   m_CullTransparentMesh: 1
+--- !u!95 &681438428
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 681438424}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d3419a78ccbf5c047a857784fdf6d6ec, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &684331075 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1728367123960093460, guid: cb219fb371521054188c0bae8153e9cd, type: 3}
@@ -22675,7 +22697,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 47
+  m_RootOrder: 46
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1292272304 stripped
 GameObject:
@@ -23646,7 +23668,7 @@ Transform:
   - {fileID: 72795890}
   - {fileID: 856486114}
   m_Father: {fileID: 0}
-  m_RootOrder: 45
+  m_RootOrder: 44
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1360180307 stripped
 GameObject:
@@ -31503,7 +31525,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 42
+  m_RootOrder: 49
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1667995292 stripped
 GameObject:
@@ -32224,7 +32246,7 @@ RectTransform:
   - {fileID: 681438425}
   - {fileID: 1747556021}
   m_Father: {fileID: 0}
-  m_RootOrder: 46
+  m_RootOrder: 45
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -35341,7 +35363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73a0b688993c58348a778839242a3919, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Spike: {fileID: 1755476674726647045, guid: 780370f8071d33b4b9ac1ff27843d7e5, type: 3}
+  Spike: {fileID: 1755476674726647045, guid: c9d92171c25d48049b183133bea6fb55, type: 3}
 --- !u!4 &1957452650
 Transform:
   m_ObjectHideFlags: 0
@@ -37686,7 +37708,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8694898826406197067, guid: 34351fb8b2ad12e44aecfdd6a3a0a73a, type: 3}
       propertyPath: m_RootOrder
-      value: 48
+      value: 47
       objectReference: {fileID: 0}
     - target: {fileID: 8694898826406197067, guid: 34351fb8b2ad12e44aecfdd6a3a0a73a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -38181,7 +38203,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 67202519647272057}
   m_LocalRotation: {x: -0.00015196993, y: 0.000000017356557, z: 0.00000026173237, w: 1}
-  m_LocalPosition: {x: -0.0013580322, y: 0.42736816, z: -0.00054323405}
+  m_LocalPosition: {x: -0.0013580322, y: 0.42736816, z: -0.00053941936}
   m_LocalScale: {x: 1, y: 0.99999994, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -39479,7 +39501,7 @@ Animator:
   m_GameObject: {fileID: 2576951675243562274}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 41f081d5c6d286c47a33bed3f84de79a, type: 3}
-  m_Controller: {fileID: 9100000, guid: 69ce5dd747afb75488c00ed0f554f1d6, type: 2}
+  m_Controller: {fileID: 9100000, guid: 731e5be7b03672a42993db21bc84548d, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -39518,44 +39540,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e0ff1f6f324adb44bc6927bf95475c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Rgroup:
-  - plat_a: {fileID: 800895246}
-    plat_b: {fileID: 1324051354}
-  - plat_a: {fileID: 1250041562}
-    plat_b: {fileID: 348504854}
-  - plat_a: {fileID: 1477530181}
-    plat_b: {fileID: 1020140243}
-  - plat_a: {fileID: 762562779}
-    plat_b: {fileID: 1196841000}
-  Fjump: 270
-  F: 300
-  S: 200
   speed: 4
   sprint: 10
-  vdplayer: {fileID: 1075547529}
-  Sword: {fileID: 0}
-  isAttacking: 0
-  Jump: {fileID: 8300000, guid: 97f94837054e64049bf579496117e07e, type: 3}
-  Miss_Sword: {fileID: 8300000, guid: 034ad2291d84f6a448ed6ce929b34124, type: 3}
-  Damage: {fileID: 8300000, guid: 0fd1c2cadad098e479b51b8bac542c1e, type: 3}
-  Ghost: {fileID: 8300000, guid: 6e2b6e7033c2dc245bb2233ad6d745cc, type: 3}
-  Player_mp3: {fileID: 9108767316370261480}
-  Walk_mp3: {fileID: 9108767316370261481}
-  Shield: {fileID: 0}
-  blocker: 0
-  block: 0
-  blockDuration: 1
-  health: {fileID: 1747556023}
-  hp: 100
-  damage_CD: 0.5
-  nextDmg: 0
-  jump: 0
-  horizontal: 0
-  vertical: 0
-  anim: {fileID: 9108767316370261474}
+  jumpForce: 200
   cameraPivot: {fileID: 1867934381}
   sensitivity: 5.03
   yLimited: 30
+  health: {fileID: 1747556023}
+  maxHp: 100
+  hp: 100
+  damageCD: 0.5
+  playerAudioSource: {fileID: 9108767316370261479}
+  walkAudioSource: {fileID: 9108767316370261481}
+  jumpClip: {fileID: 8300000, guid: 97f94837054e64049bf579496117e07e, type: 3}
+  damageClip: {fileID: 8300000, guid: 0fd1c2cadad098e479b51b8bac542c1e, type: 3}
+  videoPlayer: {fileID: 1075547529}
+  anim: {fileID: 9108767316370261474}
+  blocker: 0
+  isAttacking: 0
+  isBlocking: 0
 --- !u!136 &9108767316370261477
 CapsuleCollider:
   m_ObjectHideFlags: 0

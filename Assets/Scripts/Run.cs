@@ -64,21 +64,27 @@ public class Run : MonoBehaviour
 
     private void HandleCameraRotation()
     {
-        float mouseX = Input.GetAxis("Mouse X") * sensitivity;
-        float mouseY = Input.GetAxis("Mouse Y") * sensitivity;
-
-        transform.Rotate(0, mouseX, 0);
-        verticalRotation -= mouseY;
-        verticalRotation = Mathf.Clamp(verticalRotation, -yLimited, yLimited);
-
-        if (cameraPivot != null)
+        if (blocker != true)
         {
-            cameraPivot.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
+            float mouseX = Input.GetAxis("Mouse X") * sensitivity;
+            float mouseY = Input.GetAxis("Mouse Y") * sensitivity;
+
+            transform.Rotate(0, mouseX, 0);
+            verticalRotation -= mouseY;
+            verticalRotation = Mathf.Clamp(verticalRotation, -yLimited, yLimited);
+
+
+
+            if (cameraPivot != null)
+            {
+                cameraPivot.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
+            }
         }
     }
 
     private void HandleMovement()
     {
+        
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 

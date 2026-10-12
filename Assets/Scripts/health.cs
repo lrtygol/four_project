@@ -11,6 +11,7 @@ public class health : MonoBehaviour
     public Slider slider;
     void Start()
     {
+
         StartScreen.SetActive(true);
     }
     public void set_health(int health)
@@ -22,6 +23,7 @@ public class health : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             DieScreen.SetActive(true);
+            
             Time.timeScale = 0;
             
         }
