@@ -38457,6 +38457,7 @@ GameObject:
   - component: {fileID: 9108767316370261479}
   - component: {fileID: 9108767316370261481}
   - component: {fileID: 9108767316370261480}
+  - component: {fileID: 9108767316370261482}
   m_Layer: 6
   m_Name: petya
   m_TagString: Player
@@ -39891,3 +39892,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &9108767316370261482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2576951675243562274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 337096955347a39409ec2fe3d4cc3251, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

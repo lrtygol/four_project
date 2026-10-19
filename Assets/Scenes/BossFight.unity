@@ -6903,8 +6903,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DieScreen: {fileID: 1081818580}
-  bar: {fileID: 917002826}
-  Boss_bar: {fileID: 442500265}
+  StartScreen: {fileID: 0}
   slider: {fileID: 917002829}
 --- !u!1 &920241489
 GameObject:
@@ -7735,6 +7734,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1363238359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1363238346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 337096955347a39409ec2fe3d4cc3251, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1379479584
 GameObject:
   m_ObjectHideFlags: 0
@@ -14066,44 +14077,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e0ff1f6f324adb44bc6927bf95475c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Rgroup:
-  - plat_a: {fileID: 0}
-    plat_b: {fileID: 0}
-  - plat_a: {fileID: 0}
-    plat_b: {fileID: 0}
-  - plat_a: {fileID: 0}
-    plat_b: {fileID: 0}
-  - plat_a: {fileID: 0}
-    plat_b: {fileID: 0}
-  Fjump: 270
-  F: 300
-  S: 200
   speed: 4
   sprint: 10
-  vdplayer: {fileID: 0}
-  Sword: {fileID: 2060089822}
-  isAttacking: 0
-  Jump: {fileID: 8300000, guid: 97f94837054e64049bf579496117e07e, type: 3}
-  Miss_Sword: {fileID: 8300000, guid: 034ad2291d84f6a448ed6ce929b34124, type: 3}
-  Damage: {fileID: 8300000, guid: 0fd1c2cadad098e479b51b8bac542c1e, type: 3}
-  Ghost: {fileID: 8300000, guid: ff09568f5b8bb4e48affaff747c5fc4a, type: 3}
-  Player_mp3: {fileID: 919132147845786801}
-  Walk_mp3: {fileID: 919132147845786802}
-  Shield: {fileID: 993213127}
-  blocker: 0
-  block: 0
-  blockDuration: 1
-  health: {fileID: 917002830}
-  hp: 100
-  damage_CD: 5
-  nextDmg: 0
-  jump: 0
-  horizontal: 0
-  vertical: 0
-  anim: {fileID: 919132147845786797}
+  jumpForce: 200
   cameraPivot: {fileID: 934232416}
+  Bar: {fileID: 0}
   sensitivity: 5.03
   yLimited: 30
+  health: {fileID: 917002830}
+  maxHp: 100
+  hp: 100
+  damageCD: 0.5
+  playerAudioSource: {fileID: 0}
+  walkAudioSource: {fileID: 0}
+  jumpClip: {fileID: 0}
+  damageClip: {fileID: 0}
+  videoPlayer: {fileID: 0}
+  anim: {fileID: 919132147845786797}
+  blocker: 0
+  isAttacking: 0
+  isBlocking: 0
 --- !u!82 &919132147845786801
 AudioSource:
   m_ObjectHideFlags: 0
