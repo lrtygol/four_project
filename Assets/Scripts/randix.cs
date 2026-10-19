@@ -9,7 +9,7 @@ public class PlatCouple
     public GameObject platB;
 }
 
-public class PlatformRandomizer : MonoBehaviour
+public class randix : MonoBehaviour
 {
     public PlatCouple[] rGroup = new PlatCouple[4];
 

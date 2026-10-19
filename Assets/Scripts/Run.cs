@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
+using UnityEngine.SceneManagement;
 
 public class Run : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Run : MonoBehaviour
     public float sprint = 10f;
     public float jumpForce = 200f;
     public Transform cameraPivot;
+    public GameObject Bar;
 
     [Range(0.1f, 9f)][SerializeField] private float sensitivity = 0.5f;
     [Range(0f, 90f)][SerializeField] private float yLimited = 80f;
@@ -52,7 +54,7 @@ public class Run : MonoBehaviour
 
     private void Update()
     {
-        if (blocker)
+        if (blocker || Time.timeScale == 0)
         {
             return;
         }
@@ -260,7 +262,7 @@ public class Run : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("crit_damage"))
         {
@@ -272,14 +274,11 @@ public class Run : MonoBehaviour
 
             if (Time.time > nextDmgTime)
             {
-                TakeDamage(20);
                 nextDmgTime = Time.time + damageCD;
+                TakeDamage(20);
             }
         }
-    }
 
-    private void OnTriggerEnter(Collider other)
-    {
         if (other.CompareTag("Heal"))
         {
             if (hp < maxHp)
@@ -310,9 +309,13 @@ public class Run : MonoBehaviour
         if (collision.gameObject.CompareTag("tp_boss") && videoPlayer != null)
         {
             videoPlayer.Play();
+            Bar.SetActive(false);
+            nextDmgTime += 40f;
             blocker = true;
             videoPlayer.loopPointReached += OnVideoEnd;
+            
         }
+        
     }
 
     private void OnCollisionExit(Collision collision)
@@ -329,5 +332,10 @@ public class Run : MonoBehaviour
         blocker = false;
         vp.Stop();
         vp.loopPointReached -= OnVideoEnd;
+        Fight();
+    }
+    public void Fight() 
+    {
+        SceneManager.LoadScene("BossFight");
     }
 }
