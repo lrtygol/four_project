@@ -269,6 +269,7 @@ public class Run : MonoBehaviour
             Ghost transparency = other.GetComponent<Ghost>();
             if (transparency != null)
             {
+                
                 transparency.StartTransp();
             }
 

@@ -43,7 +43,7 @@ public class Ghost : MonoBehaviour
     private IEnumerator Fading(float Duration)
     {
         speed = 0;
-
+        GetComponent<Collider>().isTrigger = false;
         float startTime = Time.time;
         float elapsed = 0f;
         Color startColor = fadeInstanceMaterial.color;
@@ -76,6 +76,7 @@ public class Ghost : MonoBehaviour
         {
             // ... (логика движения)
             Vector3 direction = (player.position - transform.position).normalized;
+            direction.y = 0f;
             transform.position += direction * speed * Time.deltaTime;
             // ... (логика вращения)
         }
