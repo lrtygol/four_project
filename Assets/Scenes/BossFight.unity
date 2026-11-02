@@ -13987,6 +13987,7 @@ GameObject:
   - component: {fileID: 919132147845786798}
   - component: {fileID: 919132147845786801}
   - component: {fileID: 919132147845786802}
+  - component: {fileID: 919132147845786803}
   m_Layer: 6
   m_Name: Petya
   m_TagString: Player
@@ -14081,18 +14082,18 @@ MonoBehaviour:
   sprint: 10
   jumpForce: 200
   cameraPivot: {fileID: 934232416}
-  Bar: {fileID: 0}
+  Bar: {fileID: 917002826}
   sensitivity: 5.03
   yLimited: 30
   health: {fileID: 917002830}
   maxHp: 100
   hp: 100
   damageCD: 0.5
-  playerAudioSource: {fileID: 0}
-  walkAudioSource: {fileID: 0}
-  jumpClip: {fileID: 0}
-  damageClip: {fileID: 0}
-  videoPlayer: {fileID: 0}
+  playerAudioSource: {fileID: 919132147845786801}
+  walkAudioSource: {fileID: 919132147845786801}
+  jumpClip: {fileID: 8300000, guid: 97f94837054e64049bf579496117e07e, type: 3}
+  damageClip: {fileID: 8300000, guid: 0fd1c2cadad098e479b51b8bac542c1e, type: 3}
+  videoPlayer: {fileID: 1264511765}
   anim: {fileID: 919132147845786797}
   blocker: 0
   isAttacking: 0
@@ -14289,6 +14290,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &919132147845786803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132147845786794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d83be63f037ee08459a102a6cb3cee36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sword: {fileID: 919132149155446097, guid: 363c3fd2100d7f54b9c8c948f081f7bc, type: 3}
+  shield: {fileID: 8124724924652989930, guid: 7feaadddbc1a0704b86a35ff2fa5c938, type: 3}
+  blockDuration: 1
+  missSwordClip: {fileID: 8300000, guid: 034ad2291d84f6a448ed6ce929b34124, type: 3}
 --- !u!1 &1227753736438291458
 GameObject:
   m_ObjectHideFlags: 0

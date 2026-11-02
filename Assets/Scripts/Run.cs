@@ -337,5 +337,6 @@ public class Run : MonoBehaviour
     public void Fight() 
     {
         SceneManager.LoadScene("BossFight");
+        
     }
 }
